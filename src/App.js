@@ -40,7 +40,7 @@ function App() {
 
     datos.set("input", mensaje);
 
-    emailjs.sendForm("service_zpo793f", "template_d4la3jq", formRef.current, "user_placeholder")
+    emailjs.sendForm("service_zpo793f", "template_d4la3jq", formRef.current, "YwXhxnIo10hShizFM")
       .then(() => alert("Mensaje enviado correctamente."))
       .catch(() => alert("Error al enviar mensaje."));
   };
