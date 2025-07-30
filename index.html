@@ -1,142 +1,232 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>InmoGlobal - Encuentra tu Lugar Ideal</title>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .hero-bg {
+        background-image: url("https://storage.googleapis.com/gemini-generative-ai-api-prod/images/0173a118-057d-4786-8153-f7a637f903e1.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      .tab-active {
+        color: #f1f5f9;
+        border-bottom: 2px solid #818cf8;
+      }
+      .loader {
+        border: 2px solid #f3f3f3;
+        border-top: 2px solid #818cf8;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
         }
-        .hero-bg {
-            background-image: url('https://storage.googleapis.com/gemini-generative-ai-api-prod/images/0173a118-057d-4786-8153-f7a637f903e1.jpg');
-            background-size: cover;
-            background-position: center;
+        100% {
+          transform: rotate(360deg);
         }
-        .tab-active {
-            color: #F1F5F9;
-            border-bottom: 2px solid #818CF8;
-        }
-        .loader {
-            border: 2px solid #f3f3f3;
-            border-top: 2px solid #818CF8;
-            border-radius: 50%;
-            width: 16px;
-            height: 16px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+      }
     </style>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'theme-bg': '#262E4C',
-                        'theme-surface': '#1E293B',
-                        'theme-primary': '#818CF8',
-                        'theme-primary-hover': '#6366F1',
-                        'theme-accent': '#38BDF8',
-                        'theme-accent-hover': '#0EA5E9',
-                        'theme-text-primary': '#F1F5F9',
-                        'theme-text-secondary': '#94A3B8',
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "theme-bg": "#262E4C",
+              "theme-surface": "#1E293B",
+              "theme-primary": "#818CF8",
+              "theme-primary-hover": "#6366F1",
+              "theme-accent": "#38BDF8",
+              "theme-accent-hover": "#0EA5E9",
+              "theme-text-primary": "#F1F5F9",
+              "theme-text-secondary": "#94A3B8",
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="bg-theme-bg text-theme-text-primary">
-
+  </head>
+  <body class="bg-theme-bg text-theme-text-primary">
     <header class="bg-theme-surface shadow-lg sticky top-0 z-40">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white">InmoGlobal</a>
-            <div class="hidden lg:flex items-center space-x-6">
-                 <a href="#" class="text-theme-text-secondary hover:text-theme-text-primary transition duration-300">Venta</a>
-                <a href="#" class="text-theme-text-secondary hover:text-theme-text-primary transition duration-300">Alquiler</a>
-                <a href="#" class="text-theme-text-secondary hover:text-theme-text-primary transition duration-300">Proyectos</a>
-            </div>
-            <div class="hidden lg:flex items-center space-x-4">
-                <div id="user-menu-container" class="relative">
-                    </div>
-                <a href="tel:+59812345678" class="bg-theme-accent text-white px-4 py-2 rounded-full hover:bg-theme-accent-hover transition duration-300 text-sm font-semibold">
-                    Llámanos
-                </a>
-            </div>
-            <div class="lg:hidden">
-                <button id="menu-btn" class="text-theme-text-secondary focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
-        </nav>
-        <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 space-y-2 bg-theme-surface">
-             </div>
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold text-white">InmoGlobal</a>
+        <div class="hidden lg:flex items-center space-x-6">
+          <a
+            href="#"
+            class="text-theme-text-secondary hover:text-theme-text-primary transition duration-300"
+            >Venta</a
+          >
+          <a
+            href="#"
+            class="text-theme-text-secondary hover:text-theme-text-primary transition duration-300"
+            >Alquiler</a
+          >
+          <a
+            href="#"
+            class="text-theme-text-secondary hover:text-theme-text-primary transition duration-300"
+            >Proyectos</a
+          >
+        </div>
+        <div class="hidden lg:flex items-center space-x-4">
+          <div id="user-menu-container" class="relative"></div>
+          <a
+            href="tel:+59812345678"
+            class="bg-theme-accent text-white px-4 py-2 rounded-full hover:bg-theme-accent-hover transition duration-300 text-sm font-semibold"
+          >
+            Llámanos
+          </a>
+        </div>
+        <div class="lg:hidden">
+          <button
+            id="menu-btn"
+            class="text-theme-text-secondary focus:outline-none"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden px-6 pb-4 space-y-2 bg-theme-surface"
+      ></div>
     </header>
-    
+
     <main>
-        <section class="hero-bg text-white">
-            <div class="bg-black bg-opacity-70 py-20 sm:py-32">
-                <div class="container mx-auto px-6 text-center">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Encuentra tu lugar ideal</h1>
-                    <p class="text-lg md:text-xl text-theme-text-secondary mb-8 max-w-3xl mx-auto">Explora miles de propiedades en venta y alquiler en todo el país.</p>
-                </div>
-            </div>
-        </section>
+      <section class="hero-bg text-white">
+        <div class="bg-black bg-opacity-70 py-20 sm:py-32">
+          <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+              Encuentra tu lugar ideal
+            </h1>
+            <p
+              class="text-lg md:text-xl text-theme-text-secondary mb-8 max-w-3xl mx-auto"
+            >
+              Explora miles de propiedades en venta y alquiler en todo el país.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <div id="register-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 transition-opacity duration-300">
-        <div class="bg-theme-surface rounded-lg shadow-xl p-8 w-full max-w-md m-4 border border-slate-700">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-semibold text-theme-text-primary">Crear una Cuenta</h3>
-                <button id="close-modal-btn" class="text-theme-text-secondary hover:text-white text-3xl leading-none">&times;</button>
-            </div>
-            <form id="register-form">
-                <div class="mb-4">
-                    <label for="register-name" class="block text-sm font-medium text-theme-text-secondary mb-1">Nombre Completo</label>
-                    <input type="text" id="register-name" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md focus:outline-none focus:ring-theme-primary focus:border-theme-primary text-white" required>
-                </div>
-                <div class="mb-4">
-                    <label for="register-email" class="block text-sm font-medium text-theme-text-secondary mb-1">Correo Electrónico</label>
-                    <input type="email" id="register-email" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md focus:outline-none focus:ring-theme-primary focus:border-theme-primary text-white" required>
-                </div>
-                <div class="mb-6">
-                    <label for="register-password" class="block text-sm font-medium text-theme-text-secondary mb-1">Contraseña</label>
-                    <input type="password" id="register-password" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md focus:outline-none focus:ring-theme-primary focus:border-theme-primary text-white" required>
-                </div>
-                <button type="submit" id="register-submit-btn" class="w-full bg-theme-primary text-white font-semibold py-2.5 px-4 rounded-md hover:bg-theme-primary-hover transition duration-300 flex items-center justify-center">
-                    <span class="btn-text">Registrarse</span>
-                    <div class="loader ml-2 hidden"></div>
-                </button>
-            </form>
+    <div
+      id="register-modal"
+      class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 transition-opacity duration-300"
+    >
+      <div
+        class="bg-theme-surface rounded-lg shadow-xl p-8 w-full max-w-md m-4 border border-slate-700"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-2xl font-semibold text-theme-text-primary">
+            Crear una Cuenta
+          </h3>
+          <button
+            id="close-modal-btn"
+            class="text-theme-text-secondary hover:text-white text-3xl leading-none"
+          >
+            &times;
+          </button>
         </div>
+        <form id="register-form">
+          <div class="mb-4">
+            <label
+              for="register-name"
+              class="block text-sm font-medium text-theme-text-secondary mb-1"
+              >Nombre Completo</label
+            >
+            <input
+              type="text"
+              id="register-name"
+              class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md focus:outline-none focus:ring-theme-primary focus:border-theme-primary text-white"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="register-email"
+              class="block text-sm font-medium text-theme-text-secondary mb-1"
+              >Correo Electrónico</label
+            >
+            <input
+              type="email"
+              id="register-email"
+              class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md focus:outline-none focus:ring-theme-primary focus:border-theme-primary text-white"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="register-password"
+              class="block text-sm font-medium text-theme-text-secondary mb-1"
+              >Contraseña</label
+            >
+            <input
+              type="password"
+              id="register-password"
+              class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md focus:outline-none focus:ring-theme-primary focus:border-theme-primary text-white"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            id="register-submit-btn"
+            class="w-full bg-theme-primary text-white font-semibold py-2.5 px-4 rounded-md hover:bg-theme-primary-hover transition duration-300 flex items-center justify-center"
+          >
+            <span class="btn-text">Registrarse</span>
+            <div class="loader ml-2 hidden"></div>
+          </button>
+        </form>
+      </div>
     </div>
 
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- CONSTANTES Y URLS ---
-            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxyb18LzL90CQOAa1xl_CNrjTqclaJINCB47leWEYibzjaNAqGRlzGDQgRGg7KeYaJong/exec";
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- CONSTANTES Y URLS ---
+        const SCRIPT_URL =
+          "https://script.google.com/macros/s/AKfycbxyb18LzL90CQOAa1xl_CNrjTqclaJINCB47leWEYibzjaNAqGRlzGDQgRGg7KeYaJong/exec";
 
-            // --- ELEMENTOS DEL DOM (Estáticos) ---
-            const modal = document.getElementById('register-modal');
-            const closeModalBtn = document.getElementById('close-modal-btn');
-            const registerForm = document.getElementById('register-form');
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const userMenuContainer = document.getElementById('user-menu-container');
+        // --- ELEMENTOS DEL DOM (Estáticos) ---
+        const modal = document.getElementById("register-modal");
+        const closeModalBtn = document.getElementById("close-modal-btn");
+        const registerForm = document.getElementById("register-form");
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const userMenuContainer = document.getElementById(
+          "user-menu-container"
+        );
 
-            // --- PLANTILLAS HTML ---
-            const loggedOutMenu = `
+        // --- PLANTILLAS HTML ---
+        const loggedOutMenu = `
                 <button id="account-btn" class="flex items-center text-theme-text-secondary hover:text-theme-text-primary transition duration-300">
                     <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     Mi Cuenta
@@ -161,156 +251,198 @@
                         </p>
                     </form>
                 </div>`;
-            const loggedInMenu = (name) => `
+        const loggedInMenu = (name) => `
                 <button id="account-btn" class="flex items-center text-theme-text-secondary hover:text-theme-text-primary transition duration-300">
                      <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                    ${name.split(' ')[0]}
+                    ${name.split(" ")[0]}
                 </button>
                 <div id="account-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-slate-800 rounded-lg shadow-xl z-20 p-4 border border-slate-700">
                     <button id="logout-btn" class="w-full bg-red-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-700">Cerrar Sesión</button>
                 </div>`;
-            const mobileMenuLoggedOut = `
+        const mobileMenuLoggedOut = `
                 <a href="#" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Venta</a>
                 <a href="#" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Alquiler</a>
                 <hr class="my-2 border-slate-700">
                 <a href="#" id="open-modal-link-mobile" class="block py-2 font-semibold text-theme-text-primary">Registrarse</a>
                 <a href="#" class="block py-2 font-semibold text-theme-text-primary">Ingresar</a>`;
-            const mobileMenuLoggedIn = (name) => `
+        const mobileMenuLoggedIn = (name) => `
                  <a href="#" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Venta</a>
                 <a href="#" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Alquiler</a>
                 <hr class="my-2 border-slate-700">
-                <p class="px-1 py-2 font-semibold text-theme-accent">Hola, ${name.split(' ')[0]}</p>
+                <p class="px-1 py-2 font-semibold text-theme-accent">Hola, ${
+                  name.split(" ")[0]
+                }</p>
                 <button id="mobile-logout-btn" class="w-full text-left py-2 font-semibold text-red-500">Cerrar Sesión</button>`;
 
-            // --- FUNCIONES ---
-            function toggleLoader(button, show) {
-                const text = button.querySelector('.btn-text');
-                const loader = button.querySelector('.loader');
-                if (show) {
-                    text.classList.add('hidden');
-                    loader.classList.remove('hidden');
-                    button.disabled = true;
-                } else {
-                    text.classList.remove('hidden');
-                    loader.classList.add('hidden');
-                    button.disabled = false;
-                }
-            }
+        // --- FUNCIONES ---
+        function toggleLoader(button, show) {
+          const text = button.querySelector(".btn-text");
+          const loader = button.querySelector(".loader");
+          if (show) {
+            text.classList.add("hidden");
+            loader.classList.remove("hidden");
+            button.disabled = true;
+          } else {
+            text.classList.remove("hidden");
+            loader.classList.add("hidden");
+            button.disabled = false;
+          }
+        }
 
-            function openModal(e) {
-                if(e) e.preventDefault();
-                modal.classList.remove('hidden');
-            }
+        function openModal(e) {
+          if (e) e.preventDefault();
+          modal.classList.remove("hidden");
+        }
 
-            function closeModal() {
-                modal.classList.add('hidden');
-            }
+        function closeModal() {
+          modal.classList.add("hidden");
+        }
 
-            function handleLogin(e) {
-                e.preventDefault();
-                const button = document.getElementById('login-submit-btn');
-                toggleLoader(button, true);
-                const email = document.getElementById('login-email').value;
-                const password = document.getElementById('login-password').value;
-                
-                fetch(`${SCRIPT_URL}?action=login&email=${email}&password=${password}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.status === 'success') {
-                            const user = { name: data.user.name, email: data.user.email };
-                            localStorage.setItem('user', JSON.stringify(user));
-                            render();
-                        } else {
-                            alert('Error: ' + data.message);
-                        }
-                    })
-                    .catch(error => alert('Error de conexión al iniciar sesión.'))
-                    .finally(() => toggleLoader(button, false));
-            }
-            
-            function handleRegister(e) {
-                e.preventDefault();
-                const button = document.getElementById('register-submit-btn');
-                toggleLoader(button, true);
-                const data = {
-                    action: 'register',
-                    name: document.getElementById('register-name').value,
-                    email: document.getElementById('register-email').value,
-                    password: document.getElementById('register-password').value
-                };
+        function handleLogin(e) {
+          e.preventDefault();
+          const button = document.getElementById("login-submit-btn");
+          toggleLoader(button, true);
+          const email = document.getElementById("login-email").value;
+          const password = document.getElementById("login-password").value;
 
-                fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(data) })
-                .then(res => res.json())
-                .then(result => {
-                    if(result.status === 'success'){
-                        alert("¡Registro exitoso! Ya puedes iniciar sesión.");
-                        closeModal();
-                        registerForm.reset();
-                    } else {
-                        alert("Error en el registro: " + result.message);
-                    }
-                })
-                .catch(error => alert('Error de conexión al registrar.'))
-                .finally(() => toggleLoader(button, false));
-            }
-
-            function logout() {
-                localStorage.removeItem('user');
+          fetch(
+            `${SCRIPT_URL}?action=login&email=${email}&password=${password}`
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.status === "success") {
+                const user = { name: data.user.name, email: data.user.email };
+                localStorage.setItem("user", JSON.stringify(user));
                 render();
-            }
-            
-            // --- FUNCIÓN PRINCIPAL DE RENDERIZADO Y VINCULACIÓN DE EVENTOS ---
-            function render() {
-                const user = JSON.parse(localStorage.getItem('user'));
-                
-                // 1. Actualizar HTML
-                if (user && user.name) {
-                    userMenuContainer.innerHTML = loggedInMenu(user.name);
-                    mobileMenu.innerHTML = mobileMenuLoggedIn(user.name);
-                } else {
-                    userMenuContainer.innerHTML = loggedOutMenu;
-                    mobileMenu.innerHTML = mobileMenuLoggedOut;
-                }
+              } else {
+                alert("Error: " + data.message);
+              }
+            })
+            .catch((error) => {
+              console.error("Login Fetch Error:", error);
+              alert(
+                "Error de conexión al iniciar sesión. Revisa la consola (F12) para más detalles."
+              );
+            })
+            .finally(() => toggleLoader(button, false));
+        }
 
-                // 2. Vincular listeners a los elementos recién creados
-                const accountBtn = document.getElementById('account-btn');
-                const accountDropdown = document.getElementById('account-dropdown');
-                if (accountBtn) {
-                    accountBtn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        accountDropdown.classList.toggle('hidden');
-                    });
-                }
+        function handleRegister(e) {
+          e.preventDefault();
+          const button = document.getElementById("register-submit-btn");
+          toggleLoader(button, true);
+          const data = {
+            action: "register",
+            name: document.getElementById("register-name").value,
+            email: document.getElementById("register-email").value,
+            password: document.getElementById("register-password").value,
+          };
 
-                if (user) {
-                    document.getElementById('logout-btn').addEventListener('click', logout);
-                    document.getElementById('mobile-logout-btn').addEventListener('click', logout);
-                } else {
-                    document.getElementById('login-form').addEventListener('submit', handleLogin);
-                    document.getElementById('open-modal-link-desktop').addEventListener('click', openModal);
-                    document.getElementById('open-modal-link-mobile').addEventListener('click', openModal);
-                }
-            }
+          fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "cors", // Explicitly set CORS mode
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((res) => {
+              if (!res.ok) {
+                // Handle non-2xx responses
+                throw new Error(`HTTP error! status: ${res.status}`);
+              }
+              return res.json();
+            })
+            .then((result) => {
+              if (result.status === "success") {
+                alert("¡Registro exitoso! Ya puedes iniciar sesión.");
+                closeModal();
+                registerForm.reset();
+              } else {
+                alert("Error en el registro: " + result.message);
+              }
+            })
+            .catch((error) => {
+              console.error("Register Fetch Error:", error);
+              alert(
+                "Error de conexión al registrar. Revisa la consola (F12) para más detalles."
+              );
+            })
+            .finally(() => toggleLoader(button, false));
+        }
 
-            // --- INICIALIZACIÓN ---
-            
-            // Vincular listeners estáticos (que no se borran) una sola vez
-            menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-            closeModalBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeModal();
+        function logout() {
+          localStorage.removeItem("user");
+          render();
+        }
+
+        // --- FUNCIÓN PRINCIPAL DE RENDERIZADO Y VINCULACIÓN DE EVENTOS ---
+        function render() {
+          const user = JSON.parse(localStorage.getItem("user"));
+
+          // 1. Actualizar HTML
+          if (user && user.name) {
+            userMenuContainer.innerHTML = loggedInMenu(user.name);
+            mobileMenu.innerHTML = mobileMenuLoggedIn(user.name);
+          } else {
+            userMenuContainer.innerHTML = loggedOutMenu;
+            mobileMenu.innerHTML = mobileMenuLoggedOut;
+          }
+
+          // 2. Vincular listeners a los elementos recién creados
+          const accountBtn = document.getElementById("account-btn");
+          const accountDropdown = document.getElementById("account-dropdown");
+          if (accountBtn) {
+            accountBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              accountDropdown.classList.toggle("hidden");
             });
-            registerForm.addEventListener('submit', handleRegister);
-            window.addEventListener('click', (e) => {
-                const accountDropdown = document.getElementById('account-dropdown');
-                if (accountDropdown && !accountDropdown.parentElement.contains(e.target)) {
-                    accountDropdown.classList.add('hidden');
-                }
-            });
+          }
 
-            // Llamada inicial para renderizar la UI según el estado de sesión
-            render();
+          if (user) {
+            document
+              .getElementById("logout-btn")
+              .addEventListener("click", logout);
+            document
+              .getElementById("mobile-logout-btn")
+              .addEventListener("click", logout);
+          } else {
+            document
+              .getElementById("login-form")
+              .addEventListener("submit", handleLogin);
+            document
+              .getElementById("open-modal-link-desktop")
+              .addEventListener("click", openModal);
+            document
+              .getElementById("open-modal-link-mobile")
+              .addEventListener("click", openModal);
+          }
+        }
+
+        // --- INICIALIZACIÓN ---
+
+        // Vincular listeners estáticos (que no se borran) una sola vez
+        menuBtn.addEventListener("click", () =>
+          mobileMenu.classList.toggle("hidden")
+        );
+        closeModalBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
         });
+        registerForm.addEventListener("submit", handleRegister);
+        window.addEventListener("click", (e) => {
+          const accountDropdown = document.getElementById("account-dropdown");
+          if (
+            accountDropdown &&
+            !accountDropdown.parentElement.contains(e.target)
+          ) {
+            accountDropdown.classList.add("hidden");
+          }
+        });
+
+        // Llamada inicial para renderizar la UI según el estado de sesión
+        render();
+      });
     </script>
-</body>
+  </body>
 </html>
