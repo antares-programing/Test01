@@ -338,21 +338,16 @@
             password: document.getElementById("register-password").value,
           };
 
+          // Usamos un 'hack' para evitar el preflight de CORS en Google Scripts
+          // En lugar de un POST directo, lo enviamos dentro de un FormData
+          const formData = new FormData();
+          formData.append("data", JSON.stringify(data));
+
           fetch(SCRIPT_URL, {
             method: "POST",
-            mode: "cors", // Explicitly set CORS mode
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
+            body: formData,
           })
-            .then((res) => {
-              if (!res.ok) {
-                // Handle non-2xx responses
-                throw new Error(`HTTP error! status: ${res.status}`);
-              }
-              return res.json();
-            })
+            .then((res) => res.json())
             .then((result) => {
               if (result.status === "success") {
                 alert("¡Registro exitoso! Ya puedes iniciar sesión.");
