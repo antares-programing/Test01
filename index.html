@@ -219,6 +219,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // --- ESTRUCTURA DE DATOS DEL CATÁLOGO ---
+        // Rutas 100% precisas basadas en la lista de archivos proporcionada.
         const catalogData = [
           {
             category: "BANDEJAS",
@@ -234,7 +235,7 @@
                   {
                     name: "Bandeja Espuma C02 con TAPA x 200 Unidades",
                     imagePath:
-                      "Imagenes/BANDEJAS/ESPUMA/Bandeja Espuma C02 CON TAPA x 200 Unidades.jpg",
+                      "Imagenes/BANDEJAS/ESPUMA/Bandeja Espuma C02 con TAPA x 200 Unidades.jpg",
                   },
                   {
                     name: "Bandeja Espuma C02 x 400 Unidades",
@@ -287,9 +288,9 @@
                       "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 24 x 35 A.D..jpg",
                   },
                   {
-                    name: "Bolsa 25 x 35 A.D",
+                    name: "Bolsa 28 x 40 A.D.",
                     imagePath:
-                      "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 25 x 35 A.D.jpg",
+                      "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 28 x 40 A.D..jpg",
                   },
                   {
                     name: "Bolsa 35 x 50 A.D.",
@@ -306,6 +307,11 @@
                     imagePath:
                       "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 50 x 70 A.D..jpg",
                   },
+                  {
+                    name: "Bolsa 60 x 90 A.D.",
+                    imagePath:
+                      "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 60 x 90 A.D..jpg",
+                  },
                 ],
               },
               {
@@ -314,17 +320,22 @@
                   {
                     name: "BOLSA BIZCOCHO MARRON N° 2",
                     imagePath:
-                      "Imagenes/BOLSAS/PAPEL/BOLSA BIZCOCHO MARRON N° 2.jpg",
+                      "Imagenes/BOLSAS/PAPEL/BOLSA BIZCOCHO MARRON N§ 2.jpg",
                   },
                   {
                     name: "BOLSA BIZCOCHO MARRON N° 5",
                     imagePath:
-                      "Imagenes/BOLSAS/PAPEL/BOLSA BIZCOCHO MARRON N° 5.jpg",
+                      "Imagenes/BOLSAS/PAPEL/BOLSA BIZCOCHO MARRON N§ 5.jpg",
                   },
                   {
                     name: "BOLSA BIZCOCHO PAPEL BLANCA N° 3",
                     imagePath:
-                      "Imagenes/BOLSAS/PAPEL/BOLSA BIZCOCHO PAPEL BLANCA N° 3.jpg",
+                      "Imagenes/BOLSAS/PAPEL/BOLSA BIZCOCHO PAPEL BLANCA Nø 3.jpg",
+                  },
+                  {
+                    name: "BOLSA BIZCOCHO PAPEL MARRON N° 3",
+                    imagePath:
+                      "Imagenes/BOLSAS/PAPEL/BOLSA BIZCOCHO PAPEL MARRON N§ 3.jpg",
                   },
                   {
                     name: "BOLSA EMPANADA CHICA",
@@ -334,11 +345,26 @@
                     name: "BOLSA EMPANADA LARGA",
                     imagePath: "Imagenes/BOLSAS/PAPEL/BOLSA EMPANADA LARGA.jpg",
                   },
+                  {
+                    name: "BOLSA PAPEL MARRON 22 X 35 X 11 CM (PEDIDO 1)",
+                    imagePath:
+                      "Imagenes/BOLSAS/PAPEL/BOLSA PAPEL MARRON 22 X 35 X 11 CM (PEDIDO 1).jpg",
+                  },
                 ],
               },
               {
                 name: "POLIPROPILENO",
                 products: [
+                  {
+                    name: "BOLSA 8 X 15 POLIPROPILENO",
+                    imagePath:
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 8 X 15 POLIPROPILENO.jpg",
+                  },
+                  {
+                    name: "BOLSA 10 X 15 POLIPROPILENO",
+                    imagePath:
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 10 X 15 POLIPROPILENO.jpg",
+                  },
                   {
                     name: "BOLSA 10 X 20 POLIPROPILENO",
                     imagePath:
@@ -350,14 +376,29 @@
                       "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 12 X 20 POLIPROPILENO.jpg",
                   },
                   {
-                    name: "BOLSA 15 X 35 POLIPROPILENO",
+                    name: "BOLSA 12 X 24 POLIPROPILENO",
                     imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 15 X 35 POLIPROPILENO.jpg",
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 12 X 24 POLIPROPILENO.jpg",
                   },
                   {
-                    name: "BOLSA 18 X 25 POLIPROPILENO",
+                    name: "BOLSA 13 X 35 POLIPROPILENO",
                     imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 18 X 25 POLIPROPILENO.jpg",
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 13 X 35 POLIPROPILENO.jpg",
+                  },
+                  {
+                    name: "BOLSA 16 X 24 POLIPROPILENO",
+                    imagePath:
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 16 X 24 POLIPROPILENO.jpg",
+                  },
+                  {
+                    name: "BOLSA 16 X 30 POLIPROPILENO",
+                    imagePath:
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 16 X 30 POLIPROPILENO.jpg",
+                  },
+                  {
+                    name: "BOLSA 17X 35 POLIPROPILENO",
+                    imagePath:
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 17X 35 POLIPROPILENO.jpg",
                   },
                   {
                     name: "BOLSA 20 X 30 POLIPROPILENO",
@@ -365,19 +406,29 @@
                       "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 20 X 30 POLIPROPILENO.jpg",
                   },
                   {
-                    name: "BOLSA 25 X 35 POLIPROPILENO",
+                    name: "BOLSA 24 X 35 POLIPROPILENO",
                     imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 25 X 35 POLIPROPILENO.jpg",
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 24 X 35 POLIPROPILENO.jpg",
                   },
                   {
-                    name: "BOLSA 30 X 40 POLIPROPILENO",
+                    name: "BOLSA 28 X 40 POLIPROPILENO",
                     imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 30 X 40 POLIPROPILENO.jpg",
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 28 X 40 POLIPROPILENO.jpg",
                   },
                   {
-                    name: "BOLSA 35 X 45 POLIPROPILENO",
+                    name: "BOLSA 35 X 35 POLIPROPILENO",
                     imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 35 X 45 POLIPROPILENO.jpg",
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 35 X 35 POLIPROPILENO.jpg",
+                  },
+                  {
+                    name: "BOLSA 35 X 50 POLIPROPILENO",
+                    imagePath:
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 35 X 50 POLIPROPILENO.jpg",
+                  },
+                  {
+                    name: "BOLSA 40 X 60 POLIPROPILENO",
+                    imagePath:
+                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 40 X 60 POLIPROPILENO.jpg",
                   },
                 ],
               },
@@ -385,14 +436,34 @@
                 name: "RESIDUOS",
                 products: [
                   {
+                    name: "BOLSA RESIDUO 1 X 1 MTS",
+                    imagePath:
+                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO 1 X 1 MTS.jpg",
+                  },
+                  {
+                    name: "BOLSA RESIDUO 1 X 1,20",
+                    imagePath:
+                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO 1 X 1,20.jpg",
+                  },
+                  {
+                    name: "BOLSA RESIDUO 50 X 55",
+                    imagePath:
+                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO 50 X 55.jpg",
+                  },
+                  {
                     name: "BOLSA RESIDUO 50 X 70",
                     imagePath:
                       "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO 50 X 70.jpg",
                   },
                   {
-                    name: "BOLSA RESIDUO 70 X 90",
+                    name: "BOLSA RESIDUO 70 X 1",
                     imagePath:
-                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO 70 X 90.jpg",
+                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO 70 X 1.jpg",
+                  },
+                  {
+                    name: "BOLSA RESIDUO TRANSPARESNTE COLOR CARAMELO 1 X 1 - 1 X 1.20",
+                    imagePath:
+                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO TRANSPARESNTE COLOR CARAMELO 1 X 1 - 1 X 1.20.jpg",
                   },
                 ],
               },
@@ -400,9 +471,24 @@
                 name: "ROLLO",
                 products: [
                   {
+                    name: "ROLLO 10 X 20 CM X 1000 BOLSAS (arreglar)",
+                    imagePath:
+                      "Imagenes/BOLSAS/ROLLO/ROLLO 10 X 20 CM X 1000 BOLSAS (arreglar).jpg",
+                  },
+                  {
+                    name: "ROLLO 12 X 20 X 1000 BOLSAS",
+                    imagePath:
+                      "Imagenes/BOLSAS/ROLLO/ROLLO 12 X 20 X 1000 BOLSAS.jpg",
+                  },
+                  {
                     name: "ROLLO 12 X 24 X 1000 UNIDADES",
                     imagePath:
                       "Imagenes/BOLSAS/ROLLO/ROLLO 12 X 24 X 1000 UNIDADES.jpg",
+                  },
+                  {
+                    name: "ROLLO 16 X 24 X 1000 UNIDADES",
+                    imagePath:
+                      "Imagenes/BOLSAS/ROLLO/ROLLO 16 X 24 X 1000 UNIDADES.jpg",
                   },
                   {
                     name: "ROLLO 20 X 30 X 1000 BOLSAS",
@@ -410,9 +496,29 @@
                       "Imagenes/BOLSAS/ROLLO/ROLLO 20 X 30 X 1000 BOLSAS.jpg",
                   },
                   {
+                    name: "ROLLO 20 X 60 X 1000 UNIDADES",
+                    imagePath:
+                      "Imagenes/BOLSAS/ROLLO/ROLLO 20 X 60 X 1000 UNIDADES.jpg",
+                  },
+                  {
+                    name: "ROLLO 24 X 35 X 1000 UNIDADES",
+                    imagePath:
+                      "Imagenes/BOLSAS/ROLLO/ROLLO 24 X 35 X 1000 UNIDADES.jpg",
+                  },
+                  {
+                    name: "ROLLO 28 X 40 X 1000 UNIDADES",
+                    imagePath:
+                      "Imagenes/BOLSAS/ROLLO/ROLLO 28 X 40 X 1000 UNIDADES.jpg",
+                  },
+                  {
                     name: "ROLLO 35 X 50 X 500 UNIDADES",
                     imagePath:
                       "Imagenes/BOLSAS/ROLLO/ROLLO 35 X 50 X 500 UNIDADES.jpg",
+                  },
+                  {
+                    name: "ROLLO DE BOLSAS UNISOLD 35 X 50 CM",
+                    imagePath:
+                      "Imagenes/BOLSAS/ROLLO/ROLLO DE BOLSAS UNISOLD 35 X 50 CM.jpg",
                   },
                 ],
               },
@@ -440,6 +546,10 @@
                 name: "ROLLO",
                 products: [
                   {
+                    name: "FILM STRETCH",
+                    imagePath: "Imagenes/EMBALAJE/ROLLO/FILM STRETCH.jpg",
+                  },
+                  {
                     name: "ROLLO PAPEL PINO 50 CM",
                     imagePath:
                       "Imagenes/EMBALAJE/ROLLO/ROLLO PAPEL PINO 50 CM.jpg",
@@ -453,6 +563,11 @@
                     name: "ROLLOPACK 30 CM X 300 METROS",
                     imagePath:
                       "Imagenes/EMBALAJE/ROLLO/ROLLOPACK 30 CM X 300 METROS.jpg",
+                  },
+                  {
+                    name: "ROLLOPACK 38 CM X 300 METROS",
+                    imagePath:
+                      "Imagenes/EMBALAJE/ROLLO/ROLLOPACK 38 CM X 300 METROS.jpg",
                   },
                   {
                     name: "ROLLOPACK 45 CM X 300 METROS",
@@ -470,9 +585,14 @@
                 name: "", // Sin subcategoría visible
                 products: [
                   {
-                    name: "HOJA FINA X 1000 UNIDADES",
+                    name: "HOJA 24 x 35 A.D.",
                     imagePath:
-                      "Imagenes/SEPARADORES - HOJAS/HOJA FINA X 1000 UNIDADES.jpg",
+                      "Imagenes/SEPARADORES - HOJAS/HOJA 24 x 35 A.D..jpg",
+                  },
+                  {
+                    name: "ROLLO HOJA X 1000 UNIDADES",
+                    imagePath:
+                      "Imagenes/SEPARADORES - HOJAS/ROLLO HOJA X 1000 UNIDADES.jpg",
                   },
                 ],
               },
@@ -485,19 +605,23 @@
                 name: "PLASTICO",
                 products: [
                   {
+                    name: "VASO PLASTICO 110 ML BLANCO",
+                    imagePath:
+                      "Imagenes/VASOS/PLASTICO/VASO PLASTICO 110 ML BLANCO.jpg",
+                  },
+                  {
                     name: "VASO PLASTICO 180 ML BLANCO",
                     imagePath:
                       "Imagenes/VASOS/PLASTICO/VASO PLASTICO 180 ML BLANCO.jpg",
                   },
                   {
-                    name: "VASO PLASTICO 220 ML BLANCO",
-                    imagePath:
-                      "Imagenes/VASOS/PLASTICO/VASO PLASTICO 220 ML BLANCO.jpg",
-                  },
-                  {
                     name: "VASO PLASTICO 300 ML BLANCO",
                     imagePath:
                       "Imagenes/VASOS/PLASTICO/VASO PLASTICO 300 ML BLANCO.jpg",
+                  },
+                  {
+                    name: "VASO PLASTICO ROJO",
+                    imagePath: "Imagenes/VASOS/PLASTICO/VASO PLASTICO ROJO.jpg",
                   },
                   {
                     name: "VASO PLASTICO TRANSPARENTE 500 ML",
