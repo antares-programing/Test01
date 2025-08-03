@@ -24,14 +24,13 @@ C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Image
 C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\ALTA DENSIDAD\Bolsa 40 x 60 A.D..jpg
 C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\ALTA DENSIDAD\Bolsa 50 x 70 A.D..jpg
 C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\ALTA DENSIDAD\Bolsa 60 x 90 A.D..jpg
-C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA BIZCOCHO MARRON N§ 2.jpg
-C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA BIZCOCHO MARRON N§ 5.jpg
-C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA BIZCOCHO PAPEL BLANCA Nø 3.jpg
-C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA BIZCOCHO PAPEL MARRON N§ 3.jpg
-C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA EMPANADA CHICA (2).jpg
+C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA BIZCOCHO MARRON N2.jpg
+C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA BIZCOCHO MARRON N5.jpg
+C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA BIZCOCHO PAPEL BLANCA N3.jpg
+C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA BIZCOCHO PAPEL MARRON N3.jpg
 C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA EMPANADA CHICA.jpg
 C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA EMPANADA LARGA.jpg
-C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA PAPEL MARRON 22 X 35 X 11 CM (PEDIDO 1).jpg
+C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\PAPEL\BOLSA PAPEL MARRON 22 X 35 X 11 CM.jpg
 C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\POLIPROPILENO\BOLSA 10 X 15 POLIPROPILENO.jpg
 C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\POLIPROPILENO\BOLSA 10 X 20 POLIPROPILENO.jpg
 C:\Users\Bruno\Desktop\Anima\Desarrollo\Clase03\clase03_ejercicio02\Test01\Imagenes\BOLSAS\POLIPROPILENO\BOLSA 12 X 20 POLIPROPILENO.jpg
