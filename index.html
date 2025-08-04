@@ -309,7 +309,7 @@
         // --- CONFIGURACIÓN ---
         const SCRIPT_URL =
           "https://script.google.com/macros/s/AKfycbzGyRG1T5l2hRDgLtBRW8IId1uog5DT5Z2pAf8rbcmfdSZHdIwztT-7Yg7cH_w-Y8udYA/exec";
-        const EMAILJS_PUBLIC_KEY = "YwXhxnIo10hShizFM"; // <-- ¡IMPORTANTE! Pega tu Public Key de EmailJS aquí
+        const EMAILJS_PUBLIC_KEY = "YwXhxnIo10hShizFM"; // <-- Clave pública insertada
         const EMAILJS_SERVICE_ID = "service_zpo793f";
         const EMAILJS_TEMPLATE_ID = "template_d4la3jq";
 
@@ -1000,15 +1000,18 @@
               .getElementById("mobile-logout-btn")
               .addEventListener("click", logout);
           } else {
-            document
-              .getElementById("login-form")
-              .addEventListener("submit", handleLogin);
-            document
-              .getElementById("open-modal-link-desktop")
-              .addEventListener("click", openModal);
-            document
-              .getElementById("open-modal-link-mobile")
-              .addEventListener("click", openModal);
+            const loginForm = document.getElementById("login-form");
+            if (loginForm) loginForm.addEventListener("submit", handleLogin);
+            const openModalDesktop = document.getElementById(
+              "open-modal-link-desktop"
+            );
+            if (openModalDesktop)
+              openModalDesktop.addEventListener("click", openModal);
+            const openModalMobile = document.getElementById(
+              "open-modal-link-mobile"
+            );
+            if (openModalMobile)
+              openModalMobile.addEventListener("click", openModal);
           }
         };
 
@@ -1090,7 +1093,7 @@
 
         // --- INICIALIZACIÓN Y EVENT LISTENERS GLOBALES ---
         function init() {
-          if (EMAILJS_PUBLIC_KEY !== "YwXhxnIo10hShizFM") {
+          if (EMAILJS_PUBLIC_KEY !== "coloca_aqui_tu_public_key") {
             emailjs.init(EMAILJS_PUBLIC_KEY);
           }
           generateCatalog();
@@ -1165,7 +1168,7 @@
         };
 
         const handleSendOrder = () => {
-          if (EMAILJS_PUBLIC_KEY === "YwXhxnIo10hShizFM") {
+          if (EMAILJS_PUBLIC_KEY === "coloca_aqui_tu_public_key") {
             alert(
               "Por favor, añade tu Public Key de EmailJS en el código para enviar pedidos."
             );
