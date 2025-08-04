@@ -26,7 +26,8 @@
         scroll-behavior: smooth;
       }
       .hero-bg {
-        background-image: url("https://storage.googleapis.com/gemini-generative-ai-api-prod/images/0173a118-057d-4786-8153-f7a637f903e1.jpg");
+        /* Ruta actualizada a la nueva imagen de banner */
+        background-image: url("Imagenes/assets/banner_principal.jpg");
         background-size: cover;
         background-position: center;
       }
@@ -81,7 +82,15 @@
       <nav
         class="container mx-auto px-6 py-4 flex justify-between items-center"
       >
-        <a href="#" class="text-2xl font-bold text-white">Urupack</a>
+        <a href="#" class="flex items-center text-2xl font-bold text-white">
+          <!-- Logo añadido y centrado verticalmente -->
+          <img
+            src="Imagenes/assets/logo.png"
+            alt="Logo Urupack"
+            class="h-8 w-auto mr-3"
+          />
+          Urupack
+        </a>
         <div class="hidden lg:flex items-center space-x-6">
           <a
             href="#"
@@ -285,11 +294,10 @@
       <div
         class="bg-theme-surface rounded-lg shadow-xl w-full max-w-4xl m-4 border border-slate-700 flex overflow-hidden"
       >
+        <!-- Ruta actualizada a la nueva imagen de contacto -->
         <div
           class="hidden md:block w-1/3 bg-cover bg-center"
-          style="
-            background-image: url('https://placehold.co/600x800/262E4C/F1F5F9?text=Urupack');
-          "
+          style="background-image: url('Imagenes/assets/modal_contacto.jpg')"
         ></div>
         <div class="w-full md:w-2/3 p-8">
           <div class="flex justify-between items-center mb-6">
@@ -303,9 +311,7 @@
               &times;
             </button>
           </div>
-          <div id="contact-form-container">
-            <!-- El contenido del formulario de contacto se generará aquí -->
-          </div>
+          <div id="contact-form-container"></div>
         </div>
       </div>
     </div>
@@ -1339,7 +1345,10 @@
 
         const handleContactSubmit = (e) => {
           e.preventDefault();
-          if (EMAILJS_PUBLIC_KEY === "coloca_aqui_tu_public_key") {
+          if (
+            !EMAILJS_PUBLIC_KEY ||
+            EMAILJS_PUBLIC_KEY === "coloca_aqui_tu_public_key"
+          ) {
             alert(
               "Por favor, añade tu Public Key de EmailJS en el código para enviar pedidos."
             );
