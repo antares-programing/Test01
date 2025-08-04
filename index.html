@@ -95,6 +95,7 @@
           >
           <a
             href="#"
+            id="contact-link"
             class="text-theme-text-secondary hover:text-theme-text-primary"
             >Contacto</a
           >
@@ -196,7 +197,7 @@
       <section id="catalog" class="py-16 sm:py-24"></section>
     </main>
 
-    <!-- Modal de Registro con campo de teléfono -->
+    <!-- Modal de Registro -->
     <div
       id="register-modal"
       class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
@@ -209,7 +210,7 @@
             Crear una Cuenta
           </h3>
           <button
-            id="close-modal-btn"
+            id="close-register-modal-btn"
             class="text-theme-text-secondary hover:text-white text-3xl leading-none"
           >
             &times;
@@ -221,8 +222,7 @@
               for="register-name"
               class="block text-sm font-medium text-theme-text-secondary mb-1"
               >Nombre Completo</label
-            >
-            <input
+            ><input
               type="text"
               id="register-name"
               class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md"
@@ -234,8 +234,7 @@
               for="register-email"
               class="block text-sm font-medium text-theme-text-secondary mb-1"
               >Correo Electrónico</label
-            >
-            <input
+            ><input
               type="email"
               id="register-email"
               class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md"
@@ -247,8 +246,7 @@
               for="register-phone"
               class="block text-sm font-medium text-theme-text-secondary mb-1"
               >Teléfono</label
-            >
-            <input
+            ><input
               type="tel"
               id="register-phone"
               class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md"
@@ -260,8 +258,7 @@
               for="register-password"
               class="block text-sm font-medium text-theme-text-secondary mb-1"
               >Contraseña</label
-            >
-            <input
+            ><input
               type="password"
               id="register-password"
               class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md"
@@ -280,7 +277,40 @@
       </div>
     </div>
 
-    <!-- Carrito de Compras Deslizable -->
+    <!-- Modal de Contacto -->
+    <div
+      id="contact-modal"
+      class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+    >
+      <div
+        class="bg-theme-surface rounded-lg shadow-xl w-full max-w-4xl m-4 border border-slate-700 flex overflow-hidden"
+      >
+        <div
+          class="hidden md:block w-1/3 bg-cover bg-center"
+          style="
+            background-image: url('https://placehold.co/600x800/262E4C/F1F5F9?text=Urupack');
+          "
+        ></div>
+        <div class="w-full md:w-2/3 p-8">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-semibold text-theme-text-primary">
+              Contáctanos
+            </h3>
+            <button
+              id="close-contact-modal-btn"
+              class="text-theme-text-secondary hover:text-white text-3xl leading-none"
+            >
+              &times;
+            </button>
+          </div>
+          <div id="contact-form-container">
+            <!-- El contenido del formulario de contacto se generará aquí -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrito de Compras -->
     <div
       id="cart-modal"
       class="fixed top-0 right-0 h-full w-full max-w-md bg-theme-surface shadow-2xl z-50 transform translate-x-full border-l border-slate-700 flex flex-col"
@@ -309,7 +339,7 @@
         // --- CONFIGURACIÓN ---
         const SCRIPT_URL =
           "https://script.google.com/macros/s/AKfycbzGyRG1T5l2hRDgLtBRW8IId1uog5DT5Z2pAf8rbcmfdSZHdIwztT-7Yg7cH_w-Y8udYA/exec";
-        const EMAILJS_PUBLIC_KEY = "YwXhxnIo10hShizFM"; // <-- Clave pública insertada
+        const EMAILJS_PUBLIC_KEY = "YwXhxnIo10hShizFM";
         const EMAILJS_SERVICE_ID = "service_zpo793f";
         const EMAILJS_TEMPLATE_ID = "template_d4la3jq";
 
@@ -322,7 +352,7 @@
           mobileMenu: document.getElementById("mobile-menu"),
           menuBtn: document.getElementById("menu-btn"),
           registerModal: document.getElementById("register-modal"),
-          closeModalBtn: document.getElementById("close-modal-btn"),
+          closeModalBtn: document.getElementById("close-register-modal-btn"),
           registerForm: document.getElementById("register-form"),
           cartModal: document.getElementById("cart-modal"),
           cartBtn: document.getElementById("cart-btn"),
@@ -334,6 +364,14 @@
           cartCount: document.getElementById("cart-count"),
           mobileCartCount: document.getElementById("mobile-cart-count"),
           catalogContainer: document.getElementById("catalog"),
+          contactLink: document.getElementById("contact-link"),
+          contactModal: document.getElementById("contact-modal"),
+          closeContactModalBtn: document.getElementById(
+            "close-contact-modal-btn"
+          ),
+          contactFormContainer: document.getElementById(
+            "contact-form-container"
+          ),
         };
 
         // --- DATOS DEL CATÁLOGO ---
@@ -788,14 +826,14 @@
         const mobileMenuLoggedOut = `
                 <a href="#" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Inicio</a>
                 <a href="#catalog" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Catálogo</a>
-                <a href="#" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Contacto</a>
+                <a href="#" id="mobile-contact-link" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Contacto</a>
                 <hr class="my-2 border-slate-700">
                 <a href="#" id="open-modal-link-mobile" class="block py-2 font-semibold text-theme-text-primary">Registrarse</a>
                 <a href="#" class="block py-2 font-semibold text-theme-text-primary">Ingresar</a>`;
         const mobileMenuLoggedIn = (name) => `
                  <a href="#" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Inicio</a>
                 <a href="#catalog" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Catálogo</a>
-                <a href="#" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Contacto</a>
+                <a href="#" id="mobile-contact-link" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Contacto</a>
                 <hr class="my-2 border-slate-700">
                 <p class="px-1 py-2 font-semibold text-theme-accent">Hola, ${
                   name.split(" ")[0]
@@ -818,6 +856,12 @@
         }
 
         // --- LÓGICA DEL CARRITO ---
+        const clearCart = () => {
+          cart = [];
+          saveCart();
+          updateCartCount();
+          renderCart();
+        };
         const updateCartCount = () => {
           const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
           DOMElements.cartCount.textContent = totalItems;
@@ -1013,6 +1057,11 @@
             if (openModalMobile)
               openModalMobile.addEventListener("click", openModal);
           }
+          const mobileContactLink = document.getElementById(
+            "mobile-contact-link"
+          );
+          if (mobileContactLink)
+            mobileContactLink.addEventListener("click", openContactModal);
         };
 
         const handleLogin = (e) => {
@@ -1033,6 +1082,7 @@
                   phone: data.user.phone,
                 };
                 localStorage.setItem("user", JSON.stringify(user));
+                clearCart();
                 renderUserAuth();
               } else {
                 alert("Error: " + data.message);
@@ -1067,6 +1117,7 @@
             .then((result) => {
               if (result.status === "success") {
                 alert("¡Registro exitoso! Ya puedes iniciar sesión.");
+                clearCart();
                 closeModal();
                 DOMElements.registerForm.reset();
               } else {
@@ -1081,6 +1132,7 @@
         };
         const logout = () => {
           localStorage.removeItem("user");
+          clearCart();
           renderUserAuth();
         };
         const openModal = (e) => {
@@ -1093,7 +1145,10 @@
 
         // --- INICIALIZACIÓN Y EVENT LISTENERS GLOBALES ---
         function init() {
-          if (EMAILJS_PUBLIC_KEY !== "coloca_aqui_tu_public_key") {
+          if (
+            EMAILJS_PUBLIC_KEY &&
+            EMAILJS_PUBLIC_KEY !== "coloca_aqui_tu_public_key"
+          ) {
             emailjs.init(EMAILJS_PUBLIC_KEY);
           }
           generateCatalog();
@@ -1112,6 +1167,14 @@
           DOMElements.menuBtn.addEventListener("click", () =>
             DOMElements.mobileMenu.classList.toggle("hidden")
           );
+          DOMElements.contactLink.addEventListener("click", openContactModal);
+          DOMElements.closeContactModalBtn.addEventListener(
+            "click",
+            closeContactModal
+          );
+          DOMElements.contactModal.addEventListener("click", (e) => {
+            if (e.target === DOMElements.contactModal) closeContactModal();
+          });
 
           DOMElements.cartContent.addEventListener(
             "click",
@@ -1168,7 +1231,10 @@
         };
 
         const handleSendOrder = () => {
-          if (EMAILJS_PUBLIC_KEY === "coloca_aqui_tu_public_key") {
+          if (
+            !EMAILJS_PUBLIC_KEY ||
+            EMAILJS_PUBLIC_KEY === "coloca_aqui_tu_public_key"
+          ) {
             alert(
               "Por favor, añade tu Public Key de EmailJS en el código para enviar pedidos."
             );
@@ -1221,6 +1287,104 @@
               (error) => {
                 alert(
                   "Hubo un error al enviar el pedido. Por favor, inténtalo de nuevo."
+                );
+                console.error("EmailJS Error:", error);
+              }
+            )
+            .finally(() => {
+              toggleLoader(button, false);
+            });
+        };
+
+        // --- LÓGICA DEL MODAL DE CONTACTO ---
+        const openContactModal = (e) => {
+          if (e) e.preventDefault();
+          renderContactForm();
+          DOMElements.contactModal.classList.remove("hidden");
+        };
+        const closeContactModal = () => {
+          DOMElements.contactModal.classList.add("hidden");
+        };
+        const renderContactForm = () => {
+          const user = JSON.parse(localStorage.getItem("user"));
+          let formHTML = "";
+          if (user) {
+            formHTML = `
+                        <p class="text-theme-text-secondary mb-6">¡Hola ${
+                          user.name.split(" ")[0]
+                        }! Esperamos que estés teniendo un excelente día. Este es tu espacio para contarnos lo que necesites: un problema con un pedido, una sugerencia para mejorar, ¡o simplemente para saludarnos! Tu opinión es muy importante para nosotros.</p>
+                        <form id="contact-form-user">
+                            <div class="mb-4"><label class="block text-sm font-medium text-theme-text-secondary mb-1">Tu Mensaje</label><textarea id="contact-message" class="w-full h-32 px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></textarea></div>
+                            <button type="submit" id="contact-submit-btn" class="w-full bg-theme-accent text-white font-semibold py-2.5 px-4 rounded-md hover:bg-theme-accent-hover flex items-center justify-center"><span class="btn-text">Enviar Mensaje</span><div class="loader ml-2 hidden"></div></button>
+                        </form>
+                    `;
+          } else {
+            formHTML = `
+                        <p class="text-theme-text-secondary mb-6">¿Tienes alguna duda o comentario? ¡Nos encantaría escucharte! Completa el formulario y nos pondremos en contacto contigo a la brevedad.</p>
+                        <form id="contact-form-guest">
+                            <div class="mb-4"><label for="contact-name" class="block text-sm font-medium text-theme-text-secondary mb-1">Nombre</label><input type="text" id="contact-name" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></div>
+                            <div class="mb-4"><label for="contact-email" class="block text-sm font-medium text-theme-text-secondary mb-1">Correo Electrónico</label><input type="email" id="contact-email" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></div>
+                            <div class="mb-4"><label for="contact-phone" class="block text-sm font-medium text-theme-text-secondary mb-1">Teléfono</label><input type="tel" id="contact-phone" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></div>
+                            <div class="mb-4"><label for="contact-message" class="block text-sm font-medium text-theme-text-secondary mb-1">Mensaje</label><textarea id="contact-message" class="w-full h-24 px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></textarea></div>
+                            <button type="submit" id="contact-submit-btn" class="w-full bg-theme-accent text-white font-semibold py-2.5 px-4 rounded-md hover:bg-theme-accent-hover flex items-center justify-center"><span class="btn-text">Enviar Mensaje</span><div class="loader ml-2 hidden"></div></button>
+                        </form>
+                    `;
+          }
+          DOMElements.contactFormContainer.innerHTML = formHTML;
+          const contactForm =
+            document.getElementById("contact-form-user") ||
+            document.getElementById("contact-form-guest");
+          contactForm.addEventListener("submit", handleContactSubmit);
+        };
+
+        const handleContactSubmit = (e) => {
+          e.preventDefault();
+          if (EMAILJS_PUBLIC_KEY === "coloca_aqui_tu_public_key") {
+            alert(
+              "Por favor, añade tu Public Key de EmailJS en el código para enviar pedidos."
+            );
+            return;
+          }
+          const user = JSON.parse(localStorage.getItem("user"));
+          let templateParams = {};
+
+          if (user) {
+            templateParams = {
+              name: user.name,
+              email: user.email,
+              phone: user.phone || "No especificado",
+              input: document.getElementById("contact-message").value,
+            };
+          } else {
+            templateParams = {
+              name: document.getElementById("contact-name").value,
+              email: document.getElementById("contact-email").value,
+              phone: document.getElementById("contact-phone").value,
+              input: document.getElementById("contact-message").value,
+            };
+            if (
+              !templateParams.name ||
+              !templateParams.email ||
+              !templateParams.input
+            ) {
+              alert("Por favor, completa todos los campos requeridos.");
+              return;
+            }
+          }
+
+          const button = document.getElementById("contact-submit-btn");
+          toggleLoader(button, true);
+
+          emailjs
+            .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(
+              () => {
+                alert("¡Mensaje enviado con éxito! Gracias por contactarnos.");
+                closeContactModal();
+              },
+              (error) => {
+                alert(
+                  "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo."
                 );
                 console.error("EmailJS Error:", error);
               }
