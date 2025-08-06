@@ -26,7 +26,6 @@
         scroll-behavior: smooth;
       }
       .hero-bg {
-        /* Ruta actualizada a la nueva imagen de banner */
         background-image: url("Imagenes/assets/banner_principal.jpg");
         background-size: cover;
         background-position: center;
@@ -47,7 +46,6 @@
           transform: rotate(360deg);
         }
       }
-      /* Estilos para el carrito deslizable */
       #cart-modal {
         transition: transform 0.3s ease-in-out;
       }
@@ -56,6 +54,19 @@
       }
       #cart-modal.translate-x-0 {
         transform: translateX(0);
+      }
+      /* Estilo para la etiqueta de descuento */
+      .discount-tag {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #EF4444; /* Color rojo */
+        color: white;
+        padding: 4px 8px;
+        border-radius: 0 0.5rem 0 0.5rem; /* Esquinas redondeadas */
+        font-size: 0.75rem; /* 12px */
+        font-weight: 600;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
       }
     </style>
     <script>
@@ -83,7 +94,6 @@
         class="container mx-auto px-6 py-4 flex justify-between items-center"
       >
         <a href="#" class="flex items-center text-2xl font-bold text-white">
-          <!-- Logo añadido y centrado verticalmente -->
           <img
             src="Imagenes/assets/logo.png"
             alt="Logo Urupack"
@@ -207,78 +217,30 @@
     </main>
 
     <!-- Modal de Registro -->
-    <div
-      id="register-modal"
-      class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-    >
-      <div
-        class="bg-theme-surface rounded-lg shadow-xl p-8 w-full max-w-md m-4 border border-slate-700"
-      >
+    <div id="register-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+      <div class="bg-theme-surface rounded-lg shadow-xl p-8 w-full max-w-md m-4 border border-slate-700">
         <div class="flex justify-between items-center mb-6">
-          <h3 class="text-2xl font-semibold text-theme-text-primary">
-            Crear una Cuenta
-          </h3>
-          <button
-            id="close-register-modal-btn"
-            class="text-theme-text-secondary hover:text-white text-3xl leading-none"
-          >
-            &times;
-          </button>
+          <h3 class="text-2xl font-semibold text-theme-text-primary">Crear una Cuenta</h3>
+          <button id="close-register-modal-btn" class="text-theme-text-secondary hover:text-white text-3xl leading-none">&times;</button>
         </div>
         <form id="register-form">
           <div class="mb-4">
-            <label
-              for="register-name"
-              class="block text-sm font-medium text-theme-text-secondary mb-1"
-              >Nombre Completo</label
-            ><input
-              type="text"
-              id="register-name"
-              class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md"
-              required
-            />
+            <label for="register-name" class="block text-sm font-medium text-theme-text-secondary mb-1">Nombre Completo</label>
+            <input type="text" id="register-name" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required />
           </div>
           <div class="mb-4">
-            <label
-              for="register-email"
-              class="block text-sm font-medium text-theme-text-secondary mb-1"
-              >Correo Electrónico</label
-            ><input
-              type="email"
-              id="register-email"
-              class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md"
-              required
-            />
+            <label for="register-email" class="block text-sm font-medium text-theme-text-secondary mb-1">Correo Electrónico</label>
+            <input type="email" id="register-email" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required />
           </div>
           <div class="mb-4">
-            <label
-              for="register-phone"
-              class="block text-sm font-medium text-theme-text-secondary mb-1"
-              >Teléfono</label
-            ><input
-              type="tel"
-              id="register-phone"
-              class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md"
-              required
-            />
+            <label for="register-phone" class="block text-sm font-medium text-theme-text-secondary mb-1">Teléfono</label>
+            <input type="tel" id="register-phone" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required />
           </div>
           <div class="mb-6">
-            <label
-              for="register-password"
-              class="block text-sm font-medium text-theme-text-secondary mb-1"
-              >Contraseña</label
-            ><input
-              type="password"
-              id="register-password"
-              class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md"
-              required
-            />
+            <label for="register-password" class="block text-sm font-medium text-theme-text-secondary mb-1">Contraseña</label>
+            <input type="password" id="register-password" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required />
           </div>
-          <button
-            type="submit"
-            id="register-submit-btn"
-            class="w-full bg-theme-primary text-white font-semibold py-2.5 px-4 rounded-md hover:bg-theme-primary-hover flex items-center justify-center"
-          >
+          <button type="submit" id="register-submit-btn" class="w-full bg-theme-primary text-white font-semibold py-2.5 px-4 rounded-md hover:bg-theme-primary-hover flex items-center justify-center">
             <span class="btn-text">Registrarse</span>
             <div class="loader ml-2 hidden"></div>
           </button>
@@ -287,29 +249,13 @@
     </div>
 
     <!-- Modal de Contacto -->
-    <div
-      id="contact-modal"
-      class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-    >
-      <div
-        class="bg-theme-surface rounded-lg shadow-xl w-full max-w-4xl m-4 border border-slate-700 flex overflow-hidden"
-      >
-        <!-- Ruta actualizada a la nueva imagen de contacto -->
-        <div
-          class="hidden md:block w-1/3 bg-cover bg-center"
-          style="background-image: url('Imagenes/assets/modal_contacto.jpg')"
-        ></div>
+    <div id="contact-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+      <div class="bg-theme-surface rounded-lg shadow-xl w-full max-w-4xl m-4 border border-slate-700 flex overflow-hidden">
+        <div class="hidden md:block w-1/3 bg-cover bg-center" style="background-image: url('Imagenes/assets/modal_contacto.jpg')"></div>
         <div class="w-full md:w-2/3 p-8">
           <div class="flex justify-between items-center mb-6">
-            <h3 class="text-2xl font-semibold text-theme-text-primary">
-              Contáctanos
-            </h3>
-            <button
-              id="close-contact-modal-btn"
-              class="text-theme-text-secondary hover:text-white text-3xl leading-none"
-            >
-              &times;
-            </button>
+            <h3 class="text-2xl font-semibold text-theme-text-primary">Contáctanos</h3>
+            <button id="close-contact-modal-btn" class="text-theme-text-secondary hover:text-white text-3xl leading-none">&times;</button>
           </div>
           <div id="contact-form-container"></div>
         </div>
@@ -317,34 +263,21 @@
     </div>
 
     <!-- Carrito de Compras -->
-    <div
-      id="cart-modal"
-      class="fixed top-0 right-0 h-full w-full max-w-md bg-theme-surface shadow-2xl z-50 transform translate-x-full border-l border-slate-700 flex flex-col"
-    >
-      <div
-        class="p-6 flex justify-between items-center border-b border-slate-700"
-      >
+    <div id="cart-modal" class="fixed top-0 right-0 h-full w-full max-w-md bg-theme-surface shadow-2xl z-50 transform translate-x-full border-l border-slate-700 flex flex-col">
+      <div class="p-6 flex justify-between items-center border-b border-slate-700">
         <h2 class="text-2xl font-semibold text-white">Tu Pedido</h2>
-        <button
-          id="close-cart-btn"
-          class="text-theme-text-secondary hover:text-white text-3xl"
-        >
-          &times;
-        </button>
+        <button id="close-cart-btn" class="text-theme-text-secondary hover:text-white text-3xl">&times;</button>
       </div>
       <div id="cart-content" class="p-6 flex-grow overflow-y-auto"></div>
       <div id="cart-footer" class="p-6 border-t border-slate-700"></div>
     </div>
-    <div
-      id="cart-overlay"
-      class="hidden fixed inset-0 bg-black bg-opacity-60 z-40"
-    ></div>
+    <div id="cart-overlay" class="hidden fixed inset-0 bg-black bg-opacity-60 z-40"></div>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // --- CONFIGURACIÓN ---
-        const SCRIPT_URL =
-          "https://script.google.com/macros/s/AKfycbzGyRG1T5l2hRDgLtBRW8IId1uog5DT5Z2pAf8rbcmfdSZHdIwztT-7Yg7cH_w-Y8udYA/exec";
+        const PRODUCTS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxLlwnwOmrwRM4xmtGd49PdoMATXbA6teIGvkOv5jJfPAFnGgeHbjeS7YzeLS4MVrFn/exec"; 
+        const LOGIN_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzGyRG1T5l2hRDgLtBRW8IId1uog5DT5Z2pAf8rbcmfdSZHdIwztT-7Yg7cH_w-Y8udYA/exec";
         const EMAILJS_PUBLIC_KEY = "YwXhxnIo10hShizFM";
         const EMAILJS_SERVICE_ID = "service_zpo793f";
         const EMAILJS_TEMPLATE_ID = "template_d4la3jq";
@@ -372,496 +305,9 @@
           catalogContainer: document.getElementById("catalog"),
           contactLink: document.getElementById("contact-link"),
           contactModal: document.getElementById("contact-modal"),
-          closeContactModalBtn: document.getElementById(
-            "close-contact-modal-btn"
-          ),
-          contactFormContainer: document.getElementById(
-            "contact-form-container"
-          ),
+          closeContactModalBtn: document.getElementById("close-contact-modal-btn"),
+          contactFormContainer: document.getElementById("contact-form-container"),
         };
-
-        // --- DATOS DEL CATÁLOGO (con precios) ---
-        const catalogData = [
-          {
-            category: "BANDEJAS",
-            subcategories: [
-              {
-                name: "ESPUMA",
-                products: [
-                  {
-                    name: "Bandeja Espuma C01 x 400 Unidades",
-                    imagePath:
-                      "Imagenes/BANDEJAS/ESPUMA/Bandeja Espuma C01 x 400 Unidades.jpg",
-                    price: 1200,
-                  },
-                  {
-                    name: "Bandeja Espuma C02 con TAPA x 200 Unidades",
-                    imagePath:
-                      "Imagenes/BANDEJAS/ESPUMA/Bandeja Espuma C02 con TAPA x 200 Unidades.jpg",
-                    price: 1500,
-                  },
-                  {
-                    name: "Bandeja Espuma C02 x 400 Unidades",
-                    imagePath:
-                      "Imagenes/BANDEJAS/ESPUMA/Bandeja Espuma C02 x 400 Unidades.jpg",
-                    price: 1350,
-                  },
-                  {
-                    name: "Bandeja Espuma C02P x 400 Unidades PROFUNDA",
-                    imagePath:
-                      "Imagenes/BANDEJAS/ESPUMA/Bandeja Espuma C02P x 400 Unidades PROFUNDA.jpg",
-                    price: 1450,
-                  },
-                  {
-                    name: "Bandeja Espuma C03 x 400 Unidades",
-                    imagePath:
-                      "Imagenes/BANDEJAS/ESPUMA/Bandeja Espuma C03 x 400 Unidades.jpg",
-                    price: 1600,
-                  },
-                  {
-                    name: "Bandeja Espuma C04 x 400 Unidades",
-                    imagePath:
-                      "Imagenes/BANDEJAS/ESPUMA/Bandeja Espuma C04 x 400 Unidades.jpg",
-                    price: 1700,
-                  },
-                  {
-                    name: "Bandeja Espuma C08 x 200 Unidades",
-                    imagePath:
-                      "Imagenes/BANDEJAS/ESPUMA/Bandeja Espuma C08 x 200 Unidades.jpg",
-                    price: 1800,
-                  },
-                  {
-                    name: "Bandeja Espuma C21 x 400 Unidades",
-                    imagePath:
-                      "Imagenes/BANDEJAS/ESPUMA/Bandeja Espuma C21 x 400 Unidades.jpg",
-                    price: 1950,
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            category: "BOLSAS",
-            subcategories: [
-              {
-                name: "ALTA DENSIDAD",
-                products: [
-                  {
-                    name: "Bolsa 20 x 30 A.D.",
-                    imagePath:
-                      "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 20 x 30 A.D..jpg",
-                    price: 150,
-                  },
-                  {
-                    name: "Bolsa 24 x 35 A.D.",
-                    imagePath:
-                      "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 24 x 35 A.D..jpg",
-                    price: 180,
-                  },
-                  {
-                    name: "Bolsa 28 x 40 A.D.",
-                    imagePath:
-                      "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 28 x 40 A.D..jpg",
-                    price: 220,
-                  },
-                  {
-                    name: "Bolsa 35 x 50 A.D.",
-                    imagePath:
-                      "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 35 x 50 A.D..jpg",
-                    price: 280,
-                  },
-                  {
-                    name: "Bolsa 40 x 60 A.D.",
-                    imagePath:
-                      "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 40 x 60 A.D..jpg",
-                    price: 350,
-                  },
-                  {
-                    name: "Bolsa 50 x 70 A.D.",
-                    imagePath:
-                      "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 50 x 70 A.D..jpg",
-                    price: 450,
-                  },
-                  {
-                    name: "Bolsa 60 x 90 A.D.",
-                    imagePath:
-                      "Imagenes/BOLSAS/ALTA DENSIDAD/Bolsa 60 x 90 A.D..jpg",
-                    price: 600,
-                  },
-                ],
-              },
-              {
-                name: "PAPEL",
-                products: [
-                  {
-                    name: "BOLSA BIZCOCHO MARRON N2",
-                    imagePath:
-                      "Imagenes/BOLSAS/PAPEL/BOLSA BIZCOCHO MARRON N2.jpg",
-                    price: 300,
-                  },
-                  {
-                    name: "BOLSA BIZCOCHO MARRON N5",
-                    imagePath:
-                      "Imagenes/BOLSAS/PAPEL/BOLSA BIZCOCHO MARRON N5.jpg",
-                    price: 450,
-                  },
-                  {
-                    name: "BOLSA BIZCOCHO PAPEL BLANCA N3",
-                    imagePath:
-                      "Imagenes/BOLSAS/PAPEL/BOLSA BIZCOCHO PAPEL BLANCA N3.jpg",
-                    price: 380,
-                  },
-                  {
-                    name: "BOLSA BIZCOCHO PAPEL MARRON N3",
-                    imagePath:
-                      "Imagenes/BOLSAS/PAPEL/BOLSA BIZCOCHO PAPEL MARRON N3.jpg",
-                    price: 350,
-                  },
-                  {
-                    name: "BOLSA EMPANADA CHICA",
-                    imagePath: "Imagenes/BOLSAS/PAPEL/BOLSA EMPANADA CHICA.jpg",
-                    price: 250,
-                  },
-                  {
-                    name: "BOLSA EMPANADA LARGA",
-                    imagePath: "Imagenes/BOLSAS/PAPEL/BOLSA EMPANADA LARGA.jpg",
-                    price: 280,
-                  },
-                  {
-                    name: "BOLSA PAPEL MARRON 22 X 35 X 11 CM",
-                    imagePath:
-                      "Imagenes/BOLSAS/PAPEL/BOLSA PAPEL MARRON 22 X 35 X 11 CM.jpg",
-                    price: 550,
-                  },
-                ],
-              },
-              {
-                name: "POLIPROPILENO",
-                products: [
-                  {
-                    name: "BOLSA 8 X 15 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 8 X 15 POLIPROPILENO.jpg",
-                    price: 90,
-                  },
-                  {
-                    name: "BOLSA 10 X 15 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 10 X 15 POLIPROPILENO.jpg",
-                    price: 110,
-                  },
-                  {
-                    name: "BOLSA 10 X 20 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 10 X 20 POLIPROPILENO.jpg",
-                    price: 130,
-                  },
-                  {
-                    name: "BOLSA 12 X 20 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 12 X 20 POLIPROPILENO.jpg",
-                    price: 150,
-                  },
-                  {
-                    name: "BOLSA 12 X 24 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 12 X 24 POLIPROPILENO.jpg",
-                    price: 170,
-                  },
-                  {
-                    name: "BOLSA 13 X 35 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 13 X 35 POLIPROPILENO.jpg",
-                    price: 200,
-                  },
-                  {
-                    name: "BOLSA 16 X 24 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 16 X 24 POLIPROPILENO.jpg",
-                    price: 220,
-                  },
-                  {
-                    name: "BOLSA 16 X 30 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 16 X 30 POLIPROPILENO.jpg",
-                    price: 250,
-                  },
-                  {
-                    name: "BOLSA 17X 35 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 17X 35 POLIPROPILENO.jpg",
-                    price: 280,
-                  },
-                  {
-                    name: "BOLSA 20 X 30 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 20 X 30 POLIPROPILENO.jpg",
-                    price: 320,
-                  },
-                  {
-                    name: "BOLSA 24 X 35 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 24 X 35 POLIPROPILENO.jpg",
-                    price: 380,
-                  },
-                  {
-                    name: "BOLSA 28 X 40 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 28 X 40 POLIPROPILENO.jpg",
-                    price: 450,
-                  },
-                  {
-                    name: "BOLSA 35 X 35 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 35 X 35 POLIPROPILENO.jpg",
-                    price: 480,
-                  },
-                  {
-                    name: "BOLSA 35 X 50 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 35 X 50 POLIPROPILENO.jpg",
-                    price: 550,
-                  },
-                  {
-                    name: "BOLSA 40 X 60 POLIPROPILENO",
-                    imagePath:
-                      "Imagenes/BOLSAS/POLIPROPILENO/BOLSA 40 X 60 POLIPROPILENO.jpg",
-                    price: 650,
-                  },
-                ],
-              },
-              {
-                name: "RESIDUOS",
-                products: [
-                  {
-                    name: "BOLSA RESIDUO 1 X 1 MTS",
-                    imagePath:
-                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO 1 X 1 MTS.jpg",
-                    price: 120,
-                  },
-                  {
-                    name: "BOLSA RESIDUO 1 X 1,20",
-                    imagePath:
-                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO 1 X 1,20.jpg",
-                    price: 150,
-                  },
-                  {
-                    name: "BOLSA RESIDUO 50 X 55",
-                    imagePath:
-                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO 50 X 55.jpg",
-                    price: 80,
-                  },
-                  {
-                    name: "BOLSA RESIDUO 50 X 70",
-                    imagePath:
-                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO 50 X 70.jpg",
-                    price: 90,
-                  },
-                  {
-                    name: "BOLSA RESIDUO 70 X 1",
-                    imagePath:
-                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO 70 X 1.jpg",
-                    price: 100,
-                  },
-                  {
-                    name: "BOLSA RESIDUO TRANSPARESNTE COLOR CARAMELO 1 X 1 - 1 X 1.20",
-                    imagePath:
-                      "Imagenes/BOLSAS/RESIDUOS/BOLSA RESIDUO TRANSPARESNTE COLOR CARAMELO 1 X 1 - 1 X 1.20.jpg",
-                    price: 180,
-                  },
-                ],
-              },
-              {
-                name: "ROLLO",
-                products: [
-                  {
-                    name: "ROLLO 10 X 20 CM X 1000 BOLSAS (arreglar)",
-                    imagePath:
-                      "Imagenes/BOLSAS/ROLLO/ROLLO 10 X 20 CM X 1000 BOLSAS (arreglar).jpg",
-                    price: 400,
-                  },
-                  {
-                    name: "ROLLO 12 X 20 X 1000 BOLSAS",
-                    imagePath:
-                      "Imagenes/BOLSAS/ROLLO/ROLLO 12 X 20 X 1000 BOLSAS.jpg",
-                    price: 450,
-                  },
-                  {
-                    name: "ROLLO 12 X 24 X 1000 UNIDADES",
-                    imagePath:
-                      "Imagenes/BOLSAS/ROLLO/ROLLO 12 X 24 X 1000 UNIDADES.jpg",
-                    price: 500,
-                  },
-                  {
-                    name: "ROLLO 16 X 24 X 1000 UNIDADES",
-                    imagePath:
-                      "Imagenes/BOLSAS/ROLLO/ROLLO 16 X 24 X 1000 UNIDADES.jpg",
-                    price: 600,
-                  },
-                  {
-                    name: "ROLLO 20 X 30 X 1000 BOLSAS",
-                    imagePath:
-                      "Imagenes/BOLSAS/ROLLO/ROLLO 20 X 30 X 1000 BOLSAS.jpg",
-                    price: 750,
-                  },
-                  {
-                    name: "ROLLO 20 X 60 X 1000 UNIDADES",
-                    imagePath:
-                      "Imagenes/BOLSAS/ROLLO/ROLLO 20 X 60 X 1000 UNIDADES.jpg",
-                    price: 900,
-                  },
-                  {
-                    name: "ROLLO 24 X 35 X 1000 UNIDADES",
-                    imagePath:
-                      "Imagenes/BOLSAS/ROLLO/ROLLO 24 X 35 X 1000 UNIDADES.jpg",
-                    price: 1100,
-                  },
-                  {
-                    name: "ROLLO 28 X 40 X 1000 UNIDADES",
-                    imagePath:
-                      "Imagenes/BOLSAS/ROLLO/ROLLO 28 X 40 X 1000 UNIDADES.jpg",
-                    price: 1300,
-                  },
-                  {
-                    name: "ROLLO 35 X 50 X 500 UNIDADES",
-                    imagePath:
-                      "Imagenes/BOLSAS/ROLLO/ROLLO 35 X 50 X 500 UNIDADES.jpg",
-                    price: 1500,
-                  },
-                  {
-                    name: "ROLLO DE BOLSAS UNISOLD 35 X 50 CM",
-                    imagePath:
-                      "Imagenes/BOLSAS/ROLLO/ROLLO DE BOLSAS UNISOLD 35 X 50 CM.jpg",
-                    price: 1600,
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            category: "EMBALAJE",
-            subcategories: [
-              {
-                name: "PAPEL",
-                products: [
-                  {
-                    name: "PAPEL PINO CORTADO 50 X 65",
-                    imagePath:
-                      "Imagenes/EMBALAJE/PAPEL/PAPEL PINO CORTADO 50 X 65.jpg",
-                    price: 800,
-                  },
-                  {
-                    name: "PAPEL SULFITO CORTADO 50 X 56",
-                    imagePath:
-                      "Imagenes/EMBALAJE/PAPEL/PAPEL SULFITO CORTADO 50 X 56.jpg",
-                    price: 750,
-                  },
-                ],
-              },
-              {
-                name: "ROLLO",
-                products: [
-                  {
-                    name: "FILM STRETCH",
-                    imagePath: "Imagenes/EMBALAJE/ROLLO/FILM STRETCH.jpg",
-                    price: 950,
-                  },
-                  {
-                    name: "ROLLO PAPEL PINO 50 CM",
-                    imagePath:
-                      "Imagenes/EMBALAJE/ROLLO/ROLLO PAPEL PINO 50 CM.jpg",
-                    price: 1200,
-                  },
-                  {
-                    name: "ROLLOPACK 28 CM X 100 MTS.",
-                    imagePath:
-                      "Imagenes/EMBALAJE/ROLLO/ROLLOPACK 28 CM X 100 MTS..jpg",
-                    price: 350,
-                  },
-                  {
-                    name: "ROLLOPACK 30 CM X 300 METROS",
-                    imagePath:
-                      "Imagenes/EMBALAJE/ROLLO/ROLLOPACK 30 CM X 300 METROS.jpg",
-                    price: 900,
-                  },
-                  {
-                    name: "ROLLOPACK 38 CM X 300 METROS",
-                    imagePath:
-                      "Imagenes/EMBALAJE/ROLLO/ROLLOPACK 38 CM X 300 METROS.jpg",
-                    price: 1100,
-                  },
-                  {
-                    name: "ROLLOPACK 45 CM X 300 METROS",
-                    imagePath:
-                      "Imagenes/EMBALAJE/ROLLO/ROLLOPACK 45 CM X 300 METROS.jpg",
-                    price: 1300,
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            category: "SEPARADORES - HOJAS",
-            subcategories: [
-              {
-                name: "",
-                products: [
-                  {
-                    name: "HOJA 24 x 35 A.D.",
-                    imagePath:
-                      "Imagenes/SEPARADORES - HOJAS/HOJA 24 x 35 A.D..jpg",
-                    price: 250,
-                  },
-                  {
-                    name: "ROLLO HOJA X 1000 UNIDADES",
-                    imagePath:
-                      "Imagenes/SEPARADORES - HOJAS/ROLLO HOJA X 1000 UNIDADES.jpg",
-                    price: 500,
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            category: "VASOS",
-            subcategories: [
-              {
-                name: "PLASTICO",
-                products: [
-                  {
-                    name: "VASO PLASTICO 110 ML BLANCO",
-                    imagePath:
-                      "Imagenes/VASOS/PLASTICO/VASO PLASTICO 110 ML BLANCO.jpg",
-                    price: 150,
-                  },
-                  {
-                    name: "VASO PLASTICO 180 ML BLANCO",
-                    imagePath:
-                      "Imagenes/VASOS/PLASTICO/VASO PLASTICO 180 ML BLANCO.jpg",
-                    price: 180,
-                  },
-                  {
-                    name: "VASO PLASTICO 300 ML BLANCO",
-                    imagePath:
-                      "Imagenes/VASOS/PLASTICO/VASO PLASTICO 300 ML BLANCO.jpg",
-                    price: 220,
-                  },
-                  {
-                    name: "VASO PLASTICO ROJO",
-                    imagePath: "Imagenes/VASOS/PLASTICO/VASO PLASTICO ROJO.jpg",
-                    price: 250,
-                  },
-                  {
-                    name: "VASO PLASTICO TRANSPARENTE 500 ML",
-                    imagePath:
-                      "Imagenes/VASOS/PLASTICO/VASO PLASTICO TRANSPARENTE 500 ML.jpg",
-                    price: 300,
-                  },
-                ],
-              },
-            ],
-          },
-        ];
 
         // --- PLANTILLAS HTML ---
         const loggedOutMenu = `
@@ -909,13 +355,12 @@
                 <a href="#catalog" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Catálogo</a>
                 <a href="#" id="mobile-contact-link" class="block py-2 text-theme-text-secondary hover:text-theme-text-primary">Contacto</a>
                 <hr class="my-2 border-slate-700">
-                <p class="px-1 py-2 font-semibold text-theme-accent">Hola, ${
-                  name.split(" ")[0]
-                }</p>
+                <p class="px-1 py-2 font-semibold text-theme-accent">Hola, ${name.split(" ")[0]}</p>
                 <button id="mobile-logout-btn" class="w-full text-left py-2 font-semibold text-red-500">Cerrar Sesión</button>`;
 
         // --- FUNCIONES AUXILIARES ---
         function toggleLoader(button, show) {
+          if (!button) return;
           const text = button.querySelector(".btn-text");
           const loader = button.querySelector(".loader");
           if (show) {
@@ -930,42 +375,27 @@
         }
 
         // --- LÓGICA DEL CARRITO ---
-        const clearCart = () => {
-          cart = [];
-          saveCart();
-          updateCartCount();
-          renderCart();
-        };
-        const updateCartCount = () => {
-          const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-          DOMElements.cartCount.textContent = totalItems;
-          DOMElements.mobileCartCount.textContent = totalItems;
-        };
-        const saveCart = () =>
-          localStorage.setItem("cart", JSON.stringify(cart));
-
         const addToCart = (product) => {
-          const existingItem = cart.find((item) => item.name === product.name);
+          const existingItem = cart.find((item) => item.nombre === product.nombre);
           if (existingItem) {
             existingItem.quantity++;
           } else {
-            cart.push({
-              name: product.name,
-              imagePath: product.imagePath,
-              price: product.price,
-              quantity: 1,
+            cart.push({ 
+              nombre: product.nombre, 
+              ruta: product.ruta, 
+              precio: product.precio, 
+              quantity: 1 
             });
           }
           saveCart();
           updateCartCount();
           renderCart();
         };
-
         const updateQuantity = (productName, newQuantity) => {
-          const item = cart.find((item) => item.name === productName);
+          const item = cart.find((item) => item.nombre === productName);
           if (item) {
             if (newQuantity <= 0) {
-              cart = cart.filter((cartItem) => cartItem.name !== productName);
+              cart = cart.filter((cartItem) => cartItem.nombre !== productName);
             } else {
               item.quantity = newQuantity;
             }
@@ -974,51 +404,47 @@
           updateCartCount();
           renderCart();
         };
+        const saveCart = () => localStorage.setItem("cart", JSON.stringify(cart));
+        const updateCartCount = () => {
+          const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+          if (DOMElements.cartCount) DOMElements.cartCount.textContent = totalItems;
+          if (DOMElements.mobileCartCount) DOMElements.mobileCartCount.textContent = totalItems;
+        };
+        const clearCart = () => {
+          cart = [];
+          saveCart();
+          updateCartCount();
+          renderCart();
+        };
 
         // --- LÓGICA DE RENDERIZADO ---
         const renderCart = () => {
+          if (!DOMElements.cartContent) return;
           DOMElements.cartContent.innerHTML = "";
           if (cart.length === 0) {
-            DOMElements.cartContent.innerHTML =
-              '<p class="text-theme-text-secondary text-center">Tu carrito está vacío.</p>';
-            DOMElements.cartFooter.innerHTML = "";
+            DOMElements.cartContent.innerHTML = '<p class="text-theme-text-secondary text-center">Tu carrito está vacío.</p>';
+            if (DOMElements.cartFooter) DOMElements.cartFooter.innerHTML = "";
             return;
           }
           cart.forEach((item) => {
             const itemElement = document.createElement("div");
             itemElement.className = "flex items-center justify-between mb-6";
             itemElement.innerHTML = `
-                        <div class="flex items-center">
-                            <img src="${item.imagePath}" alt="${
-              item.name
-            }" class="w-16 h-16 object-cover rounded-md mr-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Imagen';">
-                            <div>
-                                <h4 class="text-theme-text-primary font-semibold text-sm">${
-                                  item.name
-                                }</h4>
-                                <p class="text-xs text-theme-text-secondary">$${item.price.toFixed(
-                                  2
-                                )} c/u</p>
+                        <div class="flex items-center w-2/3">
+                            <img src="${item.ruta}" alt="${item.nombre}" class="w-16 h-16 object-cover rounded-md mr-4 flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Imagen';">
+                            <div class="overflow-hidden">
+                                <h4 class="text-theme-text-primary font-semibold text-sm truncate">${item.nombre}</h4>
+                                <p class="text-xs text-theme-text-secondary">$${parseFloat(item.precio).toFixed(2)} c/u</p>
                                 <div class="flex items-center mt-2">
-                                    <button data-name="${
-                                      item.name
-                                    }" data-change="-1" class="quantity-change bg-slate-700 rounded-l px-2 py-1 text-xs">-</button>
-                                    <span class="bg-slate-800 px-3 py-1 text-sm">${
-                                      item.quantity
-                                    }</span>
-                                    <button data-name="${
-                                      item.name
-                                    }" data-change="1" class="quantity-change bg-slate-700 rounded-r px-2 py-1 text-xs">+</button>
+                                    <button data-name="${item.nombre}" data-change="-1" class="quantity-change bg-slate-700 rounded-l px-2 py-1 text-xs">-</button>
+                                    <span class="bg-slate-800 px-3 py-1 text-sm">${item.quantity}</span>
+                                    <button data-name="${item.nombre}" data-change="1" class="quantity-change bg-slate-700 rounded-r px-2 py-1 text-xs">+</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="text-right">
-                            <p class="font-semibold text-base text-theme-text-primary">$${(
-                              item.quantity * item.price
-                            ).toFixed(2)}</p>
-                            <button data-name="${
-                              item.name
-                            }" class="remove-item text-red-500 hover:text-red-400 text-xs mt-1">Quitar</button>
+                        <div class="text-right w-1/3 ml-2">
+                            <p class="font-semibold text-base text-theme-text-primary">$${(item.quantity * item.precio).toFixed(2)}</p>
+                            <button data-name="${item.nombre}" class="remove-item text-red-500 hover:text-red-400 text-xs mt-1">Quitar</button>
                         </div>
                     `;
             DOMElements.cartContent.appendChild(itemElement);
@@ -1027,25 +453,19 @@
         };
 
         const renderCartFooter = () => {
-          const total = cart.reduce(
-            (sum, item) => sum + item.quantity * item.price,
-            0
-          );
+          if (!DOMElements.cartFooter) return;
+          const total = cart.reduce((sum, item) => sum + (item.quantity * item.precio), 0);
           const user = JSON.parse(localStorage.getItem("user"));
           let footerHTML = `
             <div class="flex justify-between items-center mb-4">
                 <span class="text-lg font-semibold">Total:</span>
-                <span class="text-2xl font-bold text-theme-primary">$${total.toFixed(
-                  2
-                )}</span>
+                <span class="text-2xl font-bold text-theme-primary">$${total.toFixed(2)}</span>
             </div>
           `;
 
           if (user) {
             footerHTML += `
-                        <p class="text-theme-text-secondary text-sm mb-4">Hola ${
-                          user.name.split(" ")[0]
-                        }, a continuación están listados todos los productos seleccionados para tu compra, por favor verifica que es correcto, y dale enviar pedido!</p>
+                        <p class="text-theme-text-secondary text-sm mb-4">Hola ${user.name.split(" ")[0]}, verifica tu pedido y presiona enviar.</p>
                         <button id="send-order-btn" class="w-full bg-theme-accent text-white font-semibold py-3 px-4 rounded-md hover:bg-theme-accent-hover flex items-center justify-center">
                             <span class="btn-text">Enviar Pedido</span>
                             <div class="loader ml-2 hidden"></div>
@@ -1067,100 +487,112 @@
           }
           DOMElements.cartFooter.innerHTML = footerHTML;
         };
-
-        const generateCatalog = () => {
+        
+        const generateCatalog = (products) => {
           const container = DOMElements.catalogContainer;
-          container.innerHTML = `<div class="container mx-auto px-6">
+          if (!container) return;
+          container.innerHTML =
+            `<div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center mb-8 text-white">Nuestro Catálogo</h2>
                 <div id="category-buttons" class="flex flex-wrap justify-center gap-3 mb-12"></div>
                 <div id="catalog-content" class="space-y-16"></div>
             </div>`;
-
+          
           const content = document.getElementById("catalog-content");
           const buttonsContainer = document.getElementById("category-buttons");
 
-          catalogData.forEach((category) => {
-            const categoryId = `category-${category.category.replace(
-              /[^a-zA-Z0-9]/g,
-              "-"
-            )}`;
+          const groupedProducts = products.reduce((acc, product) => {
+            const category = product.categoria || "Otros";
+            if (!acc[category]) {
+              acc[category] = [];
+            }
+            acc[category].push(product);
+            return acc;
+          }, {});
+
+          for (const categoryName in groupedProducts) {
+            if (groupedProducts[categoryName].length === 0) continue;
+
+            const categoryId = `category-${categoryName.replace(/[^a-zA-Z0-9]/g, '-')}`;
+            
             const button = document.createElement("button");
-            button.className =
-              "bg-theme-surface border border-slate-600 text-theme-text-secondary py-1 px-4 rounded-full hover:bg-theme-primary hover:text-white transition-colors duration-300 text-sm";
-            button.textContent = category.category;
+            button.className = "bg-theme-surface border border-slate-600 text-theme-text-secondary py-1 px-4 rounded-full hover:bg-theme-primary hover:text-white transition-colors duration-300 text-sm";
+            button.textContent = categoryName;
             button.dataset.target = `#${categoryId}`;
             buttonsContainer.appendChild(button);
 
             const categoryTitle = document.createElement("h3");
             categoryTitle.id = categoryId;
-            categoryTitle.className =
-              "text-2xl font-bold text-theme-accent border-b-2 border-theme-accent/30 pb-2 mb-8 scroll-mt-24";
-            categoryTitle.textContent = category.category;
+            categoryTitle.className = "text-2xl font-bold text-theme-accent border-b-2 border-theme-accent/30 pb-2 mb-8 scroll-mt-24";
+            categoryTitle.textContent = categoryName;
             content.appendChild(categoryTitle);
 
-            category.subcategories.forEach((subcategory) => {
-              if (subcategory.name) {
-                const subcategoryTitle = document.createElement("h4");
-                subcategoryTitle.className =
-                  "text-xl font-semibold text-theme-text-primary mb-6 ml-4";
-                subcategoryTitle.textContent = subcategory.name;
-                content.appendChild(subcategoryTitle);
+            const productsGrid = document.createElement("div");
+            productsGrid.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8";
+            
+            groupedProducts[categoryName].forEach((product) => {
+              const card = document.createElement("div");
+              card.className = "relative bg-theme-surface rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 border border-slate-700 flex flex-col";
+              
+              let discountHTML = '';
+              if (product.descuento && parseFloat(product.descuento) > 0) {
+                discountHTML = `<div class="discount-tag">${product.descuento}% OFF</div>`;
               }
-
-              const productsGrid = document.createElement("div");
-              productsGrid.className =
-                "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8";
-
-              if (subcategory.products.length > 0) {
-                subcategory.products.forEach((product) => {
-                  const displayName = product.name
-                    .replace(/\.jpg|\.png/gi, "")
-                    .replace(/_/g, " ");
-                  const card = document.createElement("div");
-                  card.className =
-                    "bg-theme-surface rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 border border-slate-700 flex flex-col";
-                  card.innerHTML = `
-                                    <img src="${
-                                      product.imagePath
-                                    }" alt="${displayName}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Imagen+no+disponible';">
-                                    <div class="p-6 flex flex-col flex-grow">
-                                        <h5 class="text-base font-bold text-theme-text-primary flex-grow mb-2">${displayName}</h5>
-                                        <p class="text-xl font-bold text-theme-primary mb-4">$${product.price.toFixed(
-                                          2
-                                        )}</p>
-                                        <button class="add-to-cart-btn w-full mt-auto bg-theme-primary text-white font-semibold py-2 px-4 rounded-md hover:bg-theme-primary-hover transition duration-300">
-                                            Agregar al pedido
-                                        </button>
-                                    </div>
-                                `;
-                  card
-                    .querySelector(".add-to-cart-btn")
-                    .addEventListener("click", () => addToCart(product));
-                  productsGrid.appendChild(card);
-                });
-              } else {
-                productsGrid.innerHTML = `<p class="text-theme-text-secondary col-span-full ml-4">No hay productos en esta categoría por el momento.</p>`;
-              }
-              content.appendChild(productsGrid);
+              
+              card.innerHTML = `
+                ${discountHTML}
+                <img src="${product.ruta}" alt="${product.nombre}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Imagen+no+disponible';">
+                <div class="p-6 flex flex-col flex-grow">
+                    <h5 class="text-base font-bold text-theme-text-primary flex-grow mb-2">${product.nombre}</h5>
+                    <p class="text-sm text-theme-text-secondary mb-2">${product.descripcion}</p>
+                    <p class="text-xl font-bold text-theme-primary mb-4">$${parseFloat(product.precio).toFixed(2)}</p>
+                    <button class="add-to-cart-btn w-full mt-auto bg-theme-primary text-white font-semibold py-2 px-4 rounded-md hover:bg-theme-primary-hover transition duration-300">
+                        Agregar al pedido
+                    </button>
+                </div>
+              `;
+              card.querySelector(".add-to-cart-btn").addEventListener("click", () => addToCart(product));
+              productsGrid.appendChild(card);
             });
-          });
-
-          buttonsContainer.addEventListener("click", (e) => {
-            if (e.target.tagName === "BUTTON") {
-              const targetId = e.target.dataset.target;
-              const targetElement = document.querySelector(targetId);
-              if (targetElement) {
-                targetElement.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }
-            }
-          });
+            content.appendChild(productsGrid);
+          }
+          
+          if (buttonsContainer) {
+            buttonsContainer.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    const targetId = e.target.dataset.target;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+          }
         };
 
+        const fetchProductsAndGenerateCatalog = async () => {
+          const container = DOMElements.catalogContainer;
+          if(container) container.innerHTML = `<p class="text-center text-theme-text-secondary">Cargando catálogo...</p>`;
+
+          try {
+            const response = await fetch(PRODUCTS_SCRIPT_URL);
+            if (!response.ok) {
+              throw new Error(`Error de red: ${response.statusText}`);
+            }
+            const result = await response.json();
+            if (result.error) {
+              throw new Error(result.message);
+            }
+            if(container) generateCatalog(result.data.filter(p => p.nombre)); // Filtrar filas vacías
+          } catch (error) {
+            console.error("Error al obtener los productos:", error);
+            if(container) container.innerHTML = `<p class="text-center text-red-400">No se pudo cargar el catálogo. Por favor, intente más tarde.</p>`;
+          }
+        };
+        
         // --- LÓGICA DE LOGIN Y REGISTRO ---
         const renderUserAuth = () => {
+          if (!DOMElements.userMenu || !DOMElements.mobileMenu) return;
           const user = JSON.parse(localStorage.getItem("user"));
           if (user && user.name) {
             DOMElements.userMenu.innerHTML = loggedInMenu(user.name);
@@ -1171,62 +603,43 @@
           }
           attachAuthEventListeners(user);
         };
-
         const attachAuthEventListeners = (user) => {
           const accountBtn = document.getElementById("account-btn");
-          const accountDropdown = document.getElementById("account-dropdown");
           if (accountBtn) {
             accountBtn.addEventListener("click", (e) => {
               e.stopPropagation();
-              accountDropdown.classList.toggle("hidden");
+              const accountDropdown = document.getElementById("account-dropdown");
+              if(accountDropdown) accountDropdown.classList.toggle("hidden");
             });
           }
 
           if (user) {
-            document
-              .getElementById("logout-btn")
-              .addEventListener("click", logout);
-            document
-              .getElementById("mobile-logout-btn")
-              .addEventListener("click", logout);
+            const logoutBtn = document.getElementById("logout-btn");
+            if(logoutBtn) logoutBtn.addEventListener("click", logout);
+            const mobileLogoutBtn = document.getElementById("mobile-logout-btn");
+            if(mobileLogoutBtn) mobileLogoutBtn.addEventListener("click", logout);
           } else {
             const loginForm = document.getElementById("login-form");
             if (loginForm) loginForm.addEventListener("submit", handleLogin);
-            const openModalDesktop = document.getElementById(
-              "open-modal-link-desktop"
-            );
-            if (openModalDesktop)
-              openModalDesktop.addEventListener("click", openModal);
-            const openModalMobile = document.getElementById(
-              "open-modal-link-mobile"
-            );
-            if (openModalMobile)
-              openModalMobile.addEventListener("click", openModal);
+            const openModalDesktop = document.getElementById("open-modal-link-desktop");
+            if (openModalDesktop) openModalDesktop.addEventListener("click", openModal);
+            const openModalMobile = document.getElementById("open-modal-link-mobile");
+            if (openModalMobile) openModalMobile.addEventListener("click", openModal);
           }
-          const mobileContactLink = document.getElementById(
-            "mobile-contact-link"
-          );
-          if (mobileContactLink)
-            mobileContactLink.addEventListener("click", openContactModal);
+          const mobileContactLink = document.getElementById("mobile-contact-link");
+          if (mobileContactLink) mobileContactLink.addEventListener("click", openContactModal);
         };
-
         const handleLogin = (e) => {
           e.preventDefault();
           const button = document.getElementById("login-submit-btn");
           toggleLoader(button, true);
           const email = document.getElementById("login-email").value;
           const password = document.getElementById("login-password").value;
-          fetch(
-            `${SCRIPT_URL}?action=login&email=${email}&password=${password}`
-          )
+          fetch(`${LOGIN_SCRIPT_URL}?action=login&email=${email}&password=${password}`)
             .then((res) => res.json())
             .then((data) => {
               if (data.status === "success") {
-                const user = {
-                  name: data.user.name,
-                  email: data.user.email,
-                  phone: data.user.phone,
-                };
+                const user = { name: data.user.name, email: data.user.email, phone: data.user.phone };
                 localStorage.setItem("user", JSON.stringify(user));
                 clearCart();
                 renderUserAuth();
@@ -1246,19 +659,14 @@
           toggleLoader(button, true);
           const data = {
             action: "register",
-            name: DOMElements.registerForm.querySelector("#register-name")
-              .value,
-            email:
-              DOMElements.registerForm.querySelector("#register-email").value,
-            password:
-              DOMElements.registerForm.querySelector("#register-password")
-                .value,
-            phone:
-              DOMElements.registerForm.querySelector("#register-phone").value,
+            name: DOMElements.registerForm.querySelector("#register-name").value,
+            email: DOMElements.registerForm.querySelector("#register-email").value,
+            password: DOMElements.registerForm.querySelector("#register-password").value,
+            phone: DOMElements.registerForm.querySelector("#register-phone").value,
           };
           const formData = new FormData();
           formData.append("data", JSON.stringify(data));
-          fetch(SCRIPT_URL, { method: "POST", body: formData })
+          fetch(LOGIN_SCRIPT_URL, { method: "POST", body: formData })
             .then((res) => res.json())
             .then((result) => {
               if (result.status === "success") {
@@ -1281,241 +689,94 @@
           clearCart();
           renderUserAuth();
         };
-        const openModal = (e) => {
-          if (e) e.preventDefault();
-          DOMElements.registerModal.classList.remove("hidden");
-        };
-        const closeModal = () => {
-          DOMElements.registerModal.classList.add("hidden");
-        };
+        const openModal = (e) => { if (e) e.preventDefault(); if(DOMElements.registerModal) DOMElements.registerModal.classList.remove("hidden"); };
+        const closeModal = () => { if(DOMElements.registerModal) DOMElements.registerModal.classList.add("hidden"); };
 
-        // --- INICIALIZACIÓN Y EVENT LISTENERS GLOBALES ---
-        function init() {
-          if (
-            EMAILJS_PUBLIC_KEY &&
-            EMAILJS_PUBLIC_KEY !== "coloca_aqui_tu_public_key"
-          ) {
-            emailjs.init(EMAILJS_PUBLIC_KEY);
-          }
-          generateCatalog();
-          renderUserAuth();
-          updateCartCount();
-
-          DOMElements.cartBtn.addEventListener("click", openCart);
-          DOMElements.mobileCartBtn.addEventListener("click", openCart);
-          DOMElements.closeCartBtn.addEventListener("click", closeCart);
-          DOMElements.cartOverlay.addEventListener("click", closeCart);
-          DOMElements.closeModalBtn.addEventListener("click", closeModal);
-          DOMElements.registerModal.addEventListener("click", (e) => {
-            if (e.target === DOMElements.registerModal) closeModal();
-          });
-          DOMElements.registerForm.addEventListener("submit", handleRegister);
-          DOMElements.menuBtn.addEventListener("click", () =>
-            DOMElements.mobileMenu.classList.toggle("hidden")
-          );
-          DOMElements.contactLink.addEventListener("click", openContactModal);
-          DOMElements.closeContactModalBtn.addEventListener(
-            "click",
-            closeContactModal
-          );
-          DOMElements.contactModal.addEventListener("click", (e) => {
-            if (e.target === DOMElements.contactModal) closeContactModal();
-          });
-
-          DOMElements.cartContent.addEventListener(
-            "click",
-            handleCartInteraction
-          );
-          DOMElements.cartFooter.addEventListener(
-            "submit",
-            handleOrderSubmission
-          );
-          DOMElements.cartFooter.addEventListener("click", (e) => {
-            if (e.target.id === "send-order-btn") handleOrderSubmission(e);
-          });
-
-          window.addEventListener("click", (e) => {
-            const accountDropdown = document.getElementById("account-dropdown");
-            if (
-              accountDropdown &&
-              !accountDropdown.parentElement.contains(e.target)
-            ) {
-              accountDropdown.classList.add("hidden");
-            }
-          });
-        }
-
-        // --- MANEJADORES DE EVENTOS ESPECÍFICOS ---
-        const openCart = () => {
-          DOMElements.cartModal.classList.remove("translate-x-full");
-          DOMElements.cartOverlay.classList.remove("hidden");
-          renderCart();
-        };
-        const closeCart = () => {
-          DOMElements.cartModal.classList.add("translate-x-full");
-          DOMElements.cartOverlay.classList.add("hidden");
-        };
-
-        const handleCartInteraction = (e) => {
-          const target = e.target;
-          const productName = target.dataset.name;
-          if (!productName) return;
-
-          if (target.classList.contains("quantity-change")) {
-            const change = parseInt(target.dataset.change, 10);
-            const item = cart.find((i) => i.name === productName);
-            if (item) updateQuantity(productName, item.quantity + change);
-          }
-          if (target.classList.contains("remove-item")) {
-            updateQuantity(productName, 0);
-          }
-        };
-
-        const handleOrderSubmission = (e) => {
-          e.preventDefault();
-          handleSendOrder();
-        };
-
+        const openCart = () => { if(DOMElements.cartModal) DOMElements.cartModal.classList.remove("translate-x-full"); if(DOMElements.cartOverlay) DOMElements.cartOverlay.classList.remove("hidden"); renderCart(); };
+        const closeCart = () => { if(DOMElements.cartModal) DOMElements.cartModal.classList.add("translate-x-full"); if(DOMElements.cartOverlay) DOMElements.cartOverlay.classList.add("hidden"); };
+        const handleCartInteraction = (e) => { const target = e.target; const productName = target.dataset.name; if (!productName) return; if (target.classList.contains("quantity-change")) { const change = parseInt(target.dataset.change, 10); const item = cart.find((i) => i.nombre === productName); if (item) updateQuantity(productName, item.quantity + change); } if (target.classList.contains("remove-item")) { updateQuantity(productName, 0); } };
+        const handleOrderSubmission = (e) => { e.preventDefault(); handleSendOrder(); };
         const handleSendOrder = () => {
-          if (
-            !EMAILJS_PUBLIC_KEY ||
-            EMAILJS_PUBLIC_KEY === "coloca_aqui_tu_public_key"
-          ) {
-            alert(
-              "Por favor, añade tu Public Key de EmailJS en el código para enviar pedidos."
-            );
+          if (!EMAILJS_PUBLIC_KEY || EMAILJS_PUBLIC_KEY === "coloca_aqui_tu_public_key") {
+            alert("Por favor, añade tu Public Key de EmailJS en el código para enviar pedidos.");
             return;
           }
           const user = JSON.parse(localStorage.getItem("user"));
           let templateParams = {};
 
           if (user) {
-            templateParams = {
-              name: user.name,
-              email: user.email,
-              phone: user.phone || "No especificado",
-            };
+            templateParams = { name: user.name, email: user.email, phone: user.phone || "No especificado" };
           } else {
             templateParams = {
               name: document.getElementById("guest-name").value,
               email: document.getElementById("guest-email").value,
               phone: document.getElementById("guest-phone").value,
             };
-            if (
-              !templateParams.name ||
-              !templateParams.email ||
-              !templateParams.phone
-            ) {
+            if (!templateParams.name || !templateParams.email || !templateParams.phone) {
               alert("Por favor, completa todos tus datos.");
               return;
             }
           }
 
-          const total = cart.reduce(
-            (sum, item) => sum + item.quantity * item.price,
-            0
-          );
-          templateParams.input = cart
-            .map(
-              (item) =>
-                `- ${item.name} (Cantidad: ${item.quantity}) - Subtotal: $${(
-                  item.quantity * item.price
-                ).toFixed(2)}`
-            )
-            .join("\n");
-          templateParams.input += `\n\n----------------------------------\nTOTAL: $${total.toFixed(
-            2
-          )}`;
+          const total = cart.reduce((sum, item) => sum + (item.quantity * item.precio), 0);
+          templateParams.input = cart.map((item) => `- ${item.nombre} (Cantidad: ${item.quantity}) - Subtotal: $${(item.quantity * item.precio).toFixed(2)}`).join("\n");
+          templateParams.input += `\n\n----------------------------------\nTOTAL: $${total.toFixed(2)}`;
 
           const button = document.getElementById("send-order-btn");
           toggleLoader(button, true);
 
-          emailjs
-            .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-            .then(
-              () => {
-                alert(
-                  "¡Pedido enviado con éxito! Nos pondremos en contacto contigo a la brevedad."
-                );
-                cart = [];
-                saveCart();
-                updateCartCount();
+          emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(() => {
+                alert("¡Pedido enviado con éxito! Nos pondremos en contacto contigo a la brevedad.");
+                clearCart();
                 closeCart();
-              },
-              (error) => {
-                alert(
-                  "Hubo un error al enviar el pedido. Por favor, inténtalo de nuevo."
-                );
+              }, (error) => {
+                alert("Hubo un error al enviar el pedido. Por favor, inténtalo de nuevo.");
                 console.error("EmailJS Error:", error);
-              }
-            )
+              })
             .finally(() => {
               toggleLoader(button, false);
             });
         };
-
-        // --- LÓGICA DEL MODAL DE CONTACTO ---
-        const openContactModal = (e) => {
-          if (e) e.preventDefault();
-          renderContactForm();
-          DOMElements.contactModal.classList.remove("hidden");
-        };
-        const closeContactModal = () => {
-          DOMElements.contactModal.classList.add("hidden");
-        };
+        const openContactModal = (e) => { if (e) e.preventDefault(); renderContactForm(); if(DOMElements.contactModal) DOMElements.contactModal.classList.remove("hidden"); };
+        const closeContactModal = () => { if(DOMElements.contactModal) DOMElements.contactModal.classList.add("hidden"); };
         const renderContactForm = () => {
-          const user = JSON.parse(localStorage.getItem("user"));
-          let formHTML = "";
-          if (user) {
-            formHTML = `
-                        <p class="text-theme-text-secondary mb-6">¡Hola ${
-                          user.name.split(" ")[0]
-                        }! Esperamos que estés teniendo un excelente día. Este es tu espacio para contarnos lo que necesites: un problema con un pedido, una sugerencia para mejorar, ¡o simplemente para saludarnos! Tu opinión es muy importante para nosotros.</p>
-                        <form id="contact-form-user">
-                            <div class="mb-4"><label class="block text-sm font-medium text-theme-text-secondary mb-1">Tu Mensaje</label><textarea id="contact-message" class="w-full h-32 px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></textarea></div>
-                            <button type="submit" id="contact-submit-btn" class="w-full bg-theme-accent text-white font-semibold py-2.5 px-4 rounded-md hover:bg-theme-accent-hover flex items-center justify-center"><span class="btn-text">Enviar Mensaje</span><div class="loader ml-2 hidden"></div></button>
-                        </form>
-                    `;
-          } else {
-            formHTML = `
-                        <p class="text-theme-text-secondary mb-6">¿Tienes alguna duda o comentario? ¡Nos encantaría escucharte! Completa el formulario y nos pondremos en contacto contigo a la brevedad.</p>
-                        <form id="contact-form-guest">
-                            <div class="mb-4"><label for="contact-name" class="block text-sm font-medium text-theme-text-secondary mb-1">Nombre</label><input type="text" id="contact-name" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></div>
-                            <div class="mb-4"><label for="contact-email" class="block text-sm font-medium text-theme-text-secondary mb-1">Correo Electrónico</label><input type="email" id="contact-email" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></div>
-                            <div class="mb-4"><label for="contact-phone" class="block text-sm font-medium text-theme-text-secondary mb-1">Teléfono</label><input type="tel" id="contact-phone" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></div>
-                            <div class="mb-4"><label for="contact-message" class="block text-sm font-medium text-theme-text-secondary mb-1">Mensaje</label><textarea id="contact-message" class="w-full h-24 px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></textarea></div>
-                            <button type="submit" id="contact-submit-btn" class="w-full bg-theme-accent text-white font-semibold py-2.5 px-4 rounded-md hover:bg-theme-accent-hover flex items-center justify-center"><span class="btn-text">Enviar Mensaje</span><div class="loader ml-2 hidden"></div></button>
-                        </form>
-                    `;
-          }
-          DOMElements.contactFormContainer.innerHTML = formHTML;
-          const contactForm =
-            document.getElementById("contact-form-user") ||
-            document.getElementById("contact-form-guest");
-          contactForm.addEventListener("submit", handleContactSubmit);
+            if (!DOMElements.contactFormContainer) return;
+            const user = JSON.parse(localStorage.getItem("user"));
+            let formHTML = "";
+            if (user) {
+                formHTML = `
+                    <p class="text-theme-text-secondary mb-6">¡Hola ${user.name.split(" ")[0]}! Tu opinión es muy importante para nosotros.</p>
+                    <form id="contact-form-user">
+                        <div class="mb-4"><label class="block text-sm font-medium text-theme-text-secondary mb-1">Tu Mensaje</label><textarea id="contact-message" class="w-full h-32 px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></textarea></div>
+                        <button type="submit" id="contact-submit-btn" class="w-full bg-theme-accent text-white font-semibold py-2.5 px-4 rounded-md hover:bg-theme-accent-hover flex items-center justify-center"><span class="btn-text">Enviar Mensaje</span><div class="loader ml-2 hidden"></div></button>
+                    </form>`;
+            } else {
+                formHTML = `
+                    <p class="text-theme-text-secondary mb-6">¿Tienes alguna duda o comentario? Completa el formulario y nos pondremos en contacto contigo.</p>
+                    <form id="contact-form-guest">
+                        <div class="mb-4"><label for="contact-name" class="block text-sm font-medium text-theme-text-secondary mb-1">Nombre</label><input type="text" id="contact-name" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></div>
+                        <div class="mb-4"><label for="contact-email" class="block text-sm font-medium text-theme-text-secondary mb-1">Correo Electrónico</label><input type="email" id="contact-email" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></div>
+                        <div class="mb-4"><label for="contact-phone" class="block text-sm font-medium text-theme-text-secondary mb-1">Teléfono</label><input type="tel" id="contact-phone" class="w-full px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></div>
+                        <div class="mb-4"><label for="contact-message" class="block text-sm font-medium text-theme-text-secondary mb-1">Mensaje</label><textarea id="contact-message" class="w-full h-24 px-3 py-2 bg-slate-800 border border-slate-600 rounded-md" required></textarea></div>
+                        <button type="submit" id="contact-submit-btn" class="w-full bg-theme-accent text-white font-semibold py-2.5 px-4 rounded-md hover:bg-theme-accent-hover flex items-center justify-center"><span class="btn-text">Enviar Mensaje</span><div class="loader ml-2 hidden"></div></button>
+                    </form>`;
+            }
+            DOMElements.contactFormContainer.innerHTML = formHTML;
+            const contactForm = document.getElementById("contact-form-user") || document.getElementById("contact-form-guest");
+            if(contactForm) contactForm.addEventListener("submit", handleContactSubmit);
         };
-
         const handleContactSubmit = (e) => {
           e.preventDefault();
-          if (
-            !EMAILJS_PUBLIC_KEY ||
-            EMAILJS_PUBLIC_KEY === "coloca_aqui_tu_public_key"
-          ) {
-            alert(
-              "Por favor, añade tu Public Key de EmailJS en el código para enviar pedidos."
-            );
+          if (!EMAILJS_PUBLIC_KEY || EMAILJS_PUBLIC_KEY === "coloca_aqui_tu_public_key") {
+            alert("Error de configuración para enviar mensajes.");
             return;
           }
           const user = JSON.parse(localStorage.getItem("user"));
           let templateParams = {};
 
           if (user) {
-            templateParams = {
-              name: user.name,
-              email: user.email,
-              phone: user.phone || "No especificado",
-              input: document.getElementById("contact-message").value,
-            };
+            templateParams = { name: user.name, email: user.email, phone: user.phone || "No especificado", input: document.getElementById("contact-message").value };
           } else {
             templateParams = {
               name: document.getElementById("contact-name").value,
@@ -1523,11 +784,7 @@
               phone: document.getElementById("contact-phone").value,
               input: document.getElementById("contact-message").value,
             };
-            if (
-              !templateParams.name ||
-              !templateParams.email ||
-              !templateParams.input
-            ) {
+            if (!templateParams.name || !templateParams.email || !templateParams.input) {
               alert("Por favor, completa todos los campos requeridos.");
               return;
             }
@@ -1536,26 +793,63 @@
           const button = document.getElementById("contact-submit-btn");
           toggleLoader(button, true);
 
-          emailjs
-            .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-            .then(
-              () => {
+          emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(() => {
                 alert("¡Mensaje enviado con éxito! Gracias por contactarnos.");
                 closeContactModal();
-              },
-              (error) => {
-                alert(
-                  "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo."
-                );
+              }, (error) => {
+                alert("Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.");
                 console.error("EmailJS Error:", error);
-              }
-            )
+              })
             .finally(() => {
               toggleLoader(button, false);
             });
         };
 
-        init(); // Iniciar la aplicación
+        // --- INICIALIZACIÓN ---
+        function init() {
+          if (EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== "coloca_aqui_tu_public_key") {
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+          }
+          
+          fetchProductsAndGenerateCatalog();
+          renderUserAuth();
+          updateCartCount();
+
+          // Listeners de eventos con verificación
+          if(DOMElements.cartBtn) DOMElements.cartBtn.addEventListener("click", openCart);
+          if(DOMElements.mobileCartBtn) DOMElements.mobileCartBtn.addEventListener("click", openCart);
+          if(DOMElements.closeCartBtn) DOMElements.closeCartBtn.addEventListener("click", closeCart);
+          if(DOMElements.cartOverlay) DOMElements.cartOverlay.addEventListener("click", closeCart);
+          if(DOMElements.closeModalBtn) DOMElements.closeModalBtn.addEventListener("click", closeModal);
+          if(DOMElements.registerModal) DOMElements.registerModal.addEventListener("click", (e) => {
+            if (e.target === DOMElements.registerModal) closeModal();
+          });
+          if(DOMElements.registerForm) DOMElements.registerForm.addEventListener("submit", handleRegister);
+          if(DOMElements.menuBtn) DOMElements.menuBtn.addEventListener("click", () => {
+            if(DOMElements.mobileMenu) DOMElements.mobileMenu.classList.toggle("hidden");
+          });
+          if(DOMElements.contactLink) DOMElements.contactLink.addEventListener("click", openContactModal);
+          if(DOMElements.closeContactModalBtn) DOMElements.closeContactModalBtn.addEventListener("click", closeContactModal);
+          if(DOMElements.contactModal) DOMElements.contactModal.addEventListener("click", (e) => {
+            if (e.target === DOMElements.contactModal) closeContactModal();
+          });
+          if(DOMElements.cartContent) DOMElements.cartContent.addEventListener("click", handleCartInteraction);
+          if(DOMElements.cartFooter) {
+            DOMElements.cartFooter.addEventListener("submit", handleOrderSubmission);
+            DOMElements.cartFooter.addEventListener("click", (e) => {
+              if (e.target.id === "send-order-btn") handleOrderSubmission(e);
+            });
+          }
+          window.addEventListener("click", (e) => {
+            const accountDropdown = document.getElementById("account-dropdown");
+            if (accountDropdown && accountDropdown.parentElement && !accountDropdown.parentElement.contains(e.target)) {
+              accountDropdown.classList.add("hidden");
+            }
+          });
+        }
+
+        init();
       });
     </script>
   </body>
